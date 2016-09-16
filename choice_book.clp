@@ -118,7 +118,7 @@
     (novel yes)
     (not (advice ?))
     =>
-    (printout t "ABCDEF? ")
+    (printout t "What age do you prefer? ")
     (bind ?c (read))
     (if (< ?c 19) then (assert (century first))
     else (if (= ?c 19) then (assert (century second))
@@ -234,31 +234,31 @@
    (century first)
    (not (advice ?))
    =>
-   (assert (advice "XVIII century")))
+   (assert (advice "Read Denis Diderot, Daniel Defoe")))
 
 (defrule advice-fantasy-y ""
     (fantasy yes)
     (not (advice ?))
     =>
-    (assert (advice "FANTASY YES")))
+    (assert (advice "Read Joanne Rowling, George Martin")))
 
 (defrule advice-fantasy-n ""
     (fantasy no)
     (not (advice ?))
     =>
-    (assert (advice "FANTASY NO")))
+    (assert (advice "Read Orhan Pamuk, Gregory David Roberts")))
 
 (defrule advice-russian3-y ""
     (russian-book3 yes)
     (not (advice ?))
     =>
-    (assert (advice "RUS BOOK 3 YES")))
+    (assert (advice "Read Goncharov, Gogol")))
 
 (defrule advice-russian3-n ""
     (russian-book3 no)
     (not (advice ?))
     =>
-    (assert (advice "RUS BOOK 3 NO")))
+    (assert (advice "Read Jules Verne, Mark Twain")))
 
 (defrule system-banner ""
   (declare (salience 10))
