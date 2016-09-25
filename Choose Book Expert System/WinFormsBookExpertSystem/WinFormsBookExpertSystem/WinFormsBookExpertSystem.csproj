@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Fact.cs" />
+    <Compile Include="RuleJSON.cs" />
+    <Compile Include="Rules.cs" />
     <Compile Include="StudyComponent.cs" />
     <Compile Include="ExpertShell.cs" />
     <Compile Include="ExplainComponent.cs" />

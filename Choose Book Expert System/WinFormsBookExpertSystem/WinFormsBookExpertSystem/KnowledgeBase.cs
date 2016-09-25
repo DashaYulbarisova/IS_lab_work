@@ -8,14 +8,19 @@ namespace WinFormsBookExpertSystem
 {
     public class KnowledgeBase // класс база знаний
     {
-
+        private Rules[] rulesPool; // массив правил
+        public Rules[] propRulesPool // свойство для чтения и редактирования массива правил
+        {
+            get { return rulesPool; }
+            set { rulesPool = value; }
+        }
         public KnowledgeBase() // конструктор
         {
 
         }
-        public void saveToJSON() // функция сохранения базы знаний в формат JSON
+        public void saveToFile() // функция сохранения базы знаний в файл
         { }
-        public void readFromJSON() // функция чтения базы знаний из формата JSON
+        public void readFromFile() // функция чтения базы знаний из файла
         { }
     }
 }
