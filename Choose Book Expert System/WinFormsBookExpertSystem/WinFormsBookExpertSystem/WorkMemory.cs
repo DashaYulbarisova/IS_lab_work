@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace WinFormsBookExpertSystem
 {
-    public class WorkMemory : IWorkMemory
+    public class WorkMemory : IWorkMemory // класс рабочая память
     {
-        private IChangeRules myChangeRules;
-        public WorkMemory (IChangeRules changeRules)
-            {
-                myChangeRules = changeRules;
-            }
+        private IStudyComponent myStudyComponent;
+        public WorkMemory (IStudyComponent studyComponent) // конструктор
+        {
+            myStudyComponent = studyComponent;
+        }
+        public void addFacts() // функция добавления фактов в рабочую память
+        {
+            //реализация интерфейса
+        }
 
     }
 }

@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChangeRules.cs" />
+    <Compile Include="StudyComponent.cs" />
     <Compile Include="ExpertShell.cs" />
     <Compile Include="ExplainComponent.cs" />
     <Compile Include="Form1.cs">
@@ -55,7 +55,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="IChangeRules.cs" />
+    <Compile Include="IStudyComponent.cs" />
     <Compile Include="IExplainComponent.cs" />
     <Compile Include="ILogicOutput.cs" />
     <Compile Include="IWorkMemory.cs" />

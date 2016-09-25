@@ -6,19 +6,19 @@ using System.Threading.Tasks;
 
 namespace WinFormsBookExpertSystem
 {
-    public class ExpertShell
+    public class ExpertShell //класс фасад
     {
 
         private WorkMemory myWorkMemory;
-        private ChangeRules myChangeRules;
+        private StudyComponent myStudyComponent;
         private LogicOutput myLogicOutput;
         private ExplainComponent myExplainComponent;
         private KnowledgeBase myKnowledgeBase;
-        public ExpertShell()
+        public ExpertShell() // конструктор
         {
-            
-            myChangeRules = new ChangeRules();
-            myWorkMemory = new WorkMemory(myChangeRules);
+
+            myStudyComponent = new StudyComponent();
+            myWorkMemory = new WorkMemory(myStudyComponent);
             myKnowledgeBase = new KnowledgeBase();
             myLogicOutput = new LogicOutput(myKnowledgeBase);
             myExplainComponent = new ExplainComponent(myLogicOutput);

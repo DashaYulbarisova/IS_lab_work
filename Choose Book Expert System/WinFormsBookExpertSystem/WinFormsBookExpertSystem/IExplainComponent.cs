@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace WinFormsBookExpertSystem
 {
-    public interface IExplainComponent
+    public interface IExplainComponent // класс интерфейс компонента объяснения
     {
+        void explainResults(); // функция объяснения результатов
+        void print(); // функция отображения объяснения
+       
     }
+
 }

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace WinFormsBookExpertSystem
 {
-    public interface IWorkMemory
+    public interface IWorkMemory // класс интерфейс для рабочей памяти
     {
+        void addFacts(); // функция добавления фактов в рабочую память
+        
     }
 }

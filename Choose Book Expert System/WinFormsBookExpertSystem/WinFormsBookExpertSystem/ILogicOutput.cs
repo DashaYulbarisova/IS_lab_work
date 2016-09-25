@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace WinFormsBookExpertSystem
 {
-    public interface ILogicOutput
+    public interface ILogicOutput // класс интерфейс механизма логического вывода
     {
+        void findTheRule(); // функция нахождения правила (добавить возвращаемый тип значения)
+        void askTheQuestion(); // функция, задающая вопрос (добавить возвращаемый тип значения) 
+        void getTheAnswer(); // функция, которая принимает ответ
+       
     }
 }
