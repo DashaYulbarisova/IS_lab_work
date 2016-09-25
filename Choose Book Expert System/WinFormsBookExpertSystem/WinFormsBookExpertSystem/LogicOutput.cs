@@ -8,5 +8,10 @@ namespace WinFormsBookExpertSystem
 {
     public class LogicOutput : ILogicOutput
     {
+        private KnowledgeBase myKnowledgeBase;
+        public LogicOutput(KnowledgeBase knowledgeBase)
+        {
+            myKnowledgeBase = knowledgeBase;
+        }
     }
 }

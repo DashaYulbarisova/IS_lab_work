@@ -8,5 +8,20 @@ namespace WinFormsBookExpertSystem
 {
     public class ExpertShell
     {
+
+        private WorkMemory myWorkMemory;
+        private ChangeRules myChangeRules;
+        private LogicOutput myLogicOutput;
+        private ExplainComponent myExplainComponent;
+        private KnowledgeBase myKnowledgeBase;
+        public ExpertShell()
+        {
+            
+            myChangeRules = new ChangeRules();
+            myWorkMemory = new WorkMemory(myChangeRules);
+            myKnowledgeBase = new KnowledgeBase();
+            myLogicOutput = new LogicOutput(myKnowledgeBase);
+            myExplainComponent = new ExplainComponent(myLogicOutput);
+        }
     }
 }

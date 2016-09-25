@@ -8,5 +8,10 @@ namespace WinFormsBookExpertSystem
 {
     public class ExplainComponent : IExplainComponent
     {
+        private ILogicOutput myLogicOutput;
+        public ExplainComponent(ILogicOutput logicOutput)
+        {
+            myLogicOutput = logicOutput;
+        }
     }
 }

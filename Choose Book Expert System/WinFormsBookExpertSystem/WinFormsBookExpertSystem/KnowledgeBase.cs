@@ -8,5 +8,7 @@ namespace WinFormsBookExpertSystem
 {
     public class KnowledgeBase
     {
+       
+
     }
 }

@@ -8,5 +8,11 @@ namespace WinFormsBookExpertSystem
 {
     public class WorkMemory : IWorkMemory
     {
+        private IChangeRules myChangeRules;
+        public WorkMemory (IChangeRules changeRules)
+            {
+                myChangeRules = changeRules;
+            }
+
     }
 }
