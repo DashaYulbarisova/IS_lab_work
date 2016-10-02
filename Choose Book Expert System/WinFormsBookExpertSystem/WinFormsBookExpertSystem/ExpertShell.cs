@@ -10,6 +10,12 @@ namespace WinFormsBookExpertSystem
     {
 
         private WorkMemory myWorkMemory;
+
+
+        //private List<IWorkMemory> myWorkMemories;
+
+
+
         private StudyComponent myStudyComponent;
         private LogicOutput myLogicOutput;
         private ExplainComponent myExplainComponent;
