@@ -18,7 +18,7 @@
        "conditions" :
             [{"name":"start","value":"yes","sign":"null"}],
        "question" : "Do you want to read a book on the road (yes/no)?",
-        "advice" : null,
+        "advice" : "null",
         "action"  : ["road-book"]
 
         },
