@@ -1,9 +1,11 @@
+[
 {    "start" :
   {
     "possibleValue" : ["yes"],
-    "conditions" : null,
-    "question" : null,
-    "advice" : null,
+    "conditions" :
+      [{"name" : "null","value":"null","sign":"null"}],
+    "question" : "null",
+    "advice" : "null",
     "action" : ["start"]
 
   },
@@ -13,9 +15,10 @@
       "road-book": {
 
        "possibleValue" : [ "yes", "no"],
-       "conditions" :{"start" : "yes"},
+       "conditions" :
+            [{"name":"start","value":"yes","sign":"null"}],
        "question" : "Do you want to read a book on the road (yes/no)?",
-        "advice" : null,
+        "advice" : "null",
         "action"  : ["road-book"]
 
         },
@@ -26,8 +29,8 @@
        "possibleValue" : ["yes","no"],
        "question" : "Do you want to read a classic book (yes/no)? ",
         "conditions":
-            { "road-book": "yes"},
-       "advice" : null,
+             [{"name" : "road-book","value": "yes","sign":"null"}],
+       "advice" : "null",
        "action" : ["classic-book"]
      },
 
@@ -36,8 +39,8 @@
         "possibleValue" : ["yes","no"],
         "question" : "Do you want to read a novel (yes/no)? ",
          "conditions":
-             { "road-book": "no"},
-        "advice" : null,
+            [{"name": "road-book","value": "no","sign":"null"}],
+        "advice" : "null",
         "action" : ["novel"]
       },
 
@@ -45,9 +48,8 @@
 
          "possibleValue" : ["yes","no"],
          "question" : "Do you want to read a book written by Russian (yes/no)? ",
-          "conditions":
-              { "novel": "no"},
-         "advice" : null,
+          "conditions": [{"name": "novel","value": "no","sign":"null"}],
+         "advice" : "null",
          "action" : ["russian-book2"]
        },
 
@@ -56,8 +58,7 @@
 
          "possibleValue" : ["yes","no"],
          "question" : "Do you want to read a classic book (yes/no)? ",
-          "conditions":
-              { "russian-book2": "yes"},
+          "conditions": [{"name":"russian-book2","value":"yes","sign":"null"}],
         "advice" : ["Read Dostoevsky, Bulgakov.","Read Ivanov, Dovlatov and Sanaev."],
         "action"  : ["classic-book2"]
        },
@@ -65,8 +66,7 @@
 
          "possibleValue" : ["yes","no"],
          "question" : "Do you want to read a philosophical book (yes/no)? ",
-          "conditions":
-              { "russian-book2": "no"},
+          "conditions": [{"name":"russian-book2","value":"no","sign":"null"}],
          "advice" : ["Read Kafka, Sartre, Nietzsche."],
          "action" : ["philosophy"]
        },
@@ -74,8 +74,7 @@
 
          "possibleValue" : ["yes","no"],
          "question" :"Do you want to read a scientific and popular book (yes/no)? ",
-          "conditions":
-              { "russian-book2": "no"},
+          "conditions": [{"name":"russian-book2","value":"no","sign":"null"}],
          "advice" : [ "Read Asya Kazantsev, Stephen Hawking.","Read biography."],
          "action"  : ["science"]
 
@@ -84,18 +83,15 @@
 
         "possibleValue" : ["yes","no"],
          "question" :"Do you want to read a book written by Russian (yes/no)? ",
-          "conditions":
-              { "classic-book": "yes"},
-        "advice" : null,
+          "conditions": [{"name":"classic-book","value":"yes","sign":"null"}],
+        "advice" : "null",
         "action" : ["russian-book"]
         },
        "book-about-nature" : {
 
          "possibleValue" : ["yes","no"],
          "question" :"Do you want to read a book about nature (yes/no)? ",
-          "conditions":
-              { "russian-book": "yes"},
-
+          "conditions": [{"name":"russian-book","value":"yes","sign":"null"}],
          "advice" :  ["Read Prishvin, Turgenev."],
          "action" : ["book-about-nature"]
        },
@@ -103,9 +99,7 @@
 
          "possibleValue" : ["yes","no"],
          "question" :"Do you want to read a book about relationship (yes/no)? ",
-          "conditions":
-              { "book-about-nature": "no"},
-
+          "conditions": [{"name":"book-about-nature","value":"no","sign":"null"}],
          "advice" : [ "Read Lermontov, Pushkin.","Read fables, poems."],
          "action" : ["book-about-relationship"]
 
@@ -114,9 +108,7 @@
 
          "possibleValue" : ["yes","no"],
          "question" :"Do you want to read a detective (yes/no)? ",
-          "conditions":
-              { "russian-book": "no"},
-
+          "conditions": [{"name": "russian-book","value":"no","sign":"null"}],
          "advice" : ["Read Agatha Christie."],
          "action" : ["detective"]
        },
@@ -124,9 +116,7 @@
 
          "possibleValue" : ["yes","no"],
          "question" :"Do you want to read a love-story (yes/no)? ",
-          "conditions":
-              { "russian-book": "no"},
-
+          "conditions": [{"name":"russian-book","value":"no","sign":"null"}],
          "advice" : ["Read Jane Austen.","Read O.Henry." ],
          "action" : ["love-story"]
        },
@@ -134,9 +124,7 @@
 
          "possibleValue" : ["yes","no"],
          "question" : "Do you want to read a thriller (yes/no)? ",
-          "conditions":
-              { "classic-book": "no"},
-
+          "conditions": [{"name":"classic-book","value":"no","sign":"null"}],
          "advice" : ["Read Paul Hawkins, Stephen King."],
          "action" : ["thriller"]
        },
@@ -144,9 +132,7 @@
 
          "possibleValue" : ["yes","no"],
          "question" : "Do you want to read a love story (yes/no)? ",
-          "conditions":
-              { "classic-book": "no"},
-
+          "conditions": [{"name":"classic-book","value":"no","sign":"null"}],
          "advice" : ["Read Jojo Moyes, John Green."],
          "action" : ["love-story2"]
        },
@@ -154,10 +140,8 @@
 
          "possibleValue" : ["yes","no"],
          "question" : "Do you want to read a satire (yes/no)? ",
-          "conditions":
-              { "classic-book": "no"},
-
-         "advice" : ["Read Chuck Palahniuk.","Read comics."],
+          "conditions": [{"name":"classic-book","value":"no","sign":"null"}],
+          "advice" : ["Read Chuck Palahniuk.","Read comics."],
          "action" : ["satire"]
        },
        "centure" :
@@ -165,18 +149,16 @@
 
          "possibleValue" : ["18", "19", "20"],
          "question" : "What age do you prefer?(18/19/20)",
-         "conditions" :
-         { "novel" : "yes"},
-         "advice" : null,
+         "conditions" : [{"name":"novel","value":"yes","sign":"null"}],
+         "advice" : "null",
          "action" : ["centure"]
        },
        "centure_first" :
        {
 
-         "possibleValue" : null,
-         "question" : null,
-         "conditions" :
-         { "centure" : "18"},
+         "possibleValue" : "null",
+         "question" : "null",
+         "conditions" : [{"name":"centure","value":"18","sign":"null"}],
          "advice" : ["Read Denis Diderot, Daniel Defoe"],
          "action" : ["centure_first"]
        },
@@ -185,8 +167,7 @@
 
          "possibleValue" : ["yes","no"],
          "question" : "Do you want to read a book written by Russian (yes/no)?",
-         "conditions" :
-            {"centure" : "19"},
+         "conditions" : [{"name":"centure","value":"19","sign":"null"}],
          "advice" : ["Read Goncharov, Gogol","Read Jules Verne, Mark Twain"],
          "action" : ["russian-book3"]
        },
@@ -195,9 +176,9 @@
 
           "possibleValue" : ["yes","no"],
           "question" : "Do you want to read a fantasy book (yes/no)? ",
-          "conditions":
-            {"centure" : "20"},
+          "conditions":  [{"name":"centure","value":"20","sign":"null"}],
           "advice" : ["Read Joanne Rowling, George Martin","Read Orhan Pamuk, Gregory David Roberts"],
           "action" : ["fantasy"]
          }
 }
+]
