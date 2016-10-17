@@ -33,7 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -49,8 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fact.cs" />
-    <Compile Include="RulesJSON.cs" />
-    <Compile Include="Rules.cs" />
+    <Compile Include="RuleJSON.cs" />
     <Compile Include="StudyComponent.cs" />
     <Compile Include="ExpertShell.cs" />
     <Compile Include="ExplainComponent.cs" />
