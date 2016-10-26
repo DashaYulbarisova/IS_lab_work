@@ -16,16 +16,18 @@ namespace WinFormsBookExpertSystem
 
 
 
-        private StudyComponent myStudyComponent;
-        private LogicOutput myLogicOutput;
-        private ExplainComponent myExplainComponent;
-        private KnowledgeBase myKnowledgeBase;
+        public StudyComponent myStudyComponent;
+        public LogicOutput myLogicOutput;
+        public ExplainComponent myExplainComponent;
+        public KnowledgeBase myKnowledgeBase;
         public ExpertShell() // конструктор
         {
 
-            myStudyComponent = new StudyComponent();
+            
             myWorkMemory = new WorkMemory(myStudyComponent);
             myKnowledgeBase = new KnowledgeBase();
+            myKnowledgeBase.readFromFile();
+            myStudyComponent = new StudyComponent(myKnowledgeBase);
             myLogicOutput = new LogicOutput(myKnowledgeBase);
             myExplainComponent = new ExplainComponent(myLogicOutput);
         }

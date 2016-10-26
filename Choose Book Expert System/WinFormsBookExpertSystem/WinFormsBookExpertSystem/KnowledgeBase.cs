@@ -15,13 +15,14 @@ namespace WinFormsBookExpertSystem
             get { return listOfRules; }
             set { listOfRules = value; }
         }
+        public int counterRule;
         public KnowledgeBase() // конструктор
         {
             //
             listOfRules = new RuleJSON[1000];
             for (int i = 0; i < 999; i++)
             {
-                listOfRules[i] = new RuleJSON();
+                listOfRules[i] = new RuleJSON(null,null,null,null,null);
             }
         }
         public void saveToFile() // функция сохранения базы знаний в файл

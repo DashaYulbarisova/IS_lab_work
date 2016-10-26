@@ -11,11 +11,11 @@ namespace WinFormsBookExpertSystem
         public string valueFact { get; set; }
         public string signFact { get; set; }
 
-        public myCondition()
+        public myCondition(string nameF, string val,string sign)
         {
-            nameFact = "";
-            valueFact = "";
-            signFact = "";
+            nameFact = nameF;
+            valueFact = val;
+            signFact = sign;
         }
     }
 
@@ -26,17 +26,17 @@ namespace WinFormsBookExpertSystem
         public myCondition[] condition;
         public string[] possibleValue { get; set; }
         public string question { get; set; }
+        public string nameRule;
 
-        public RuleJSON()
+        public RuleJSON(string[]arrAct, string[] arrPos,string quest, string[]arrAdv,myCondition[] arrCond)
         {
-            possibleValue = new string[100];
-            action = new string[100];
-            advice = new string[100];
-            condition = new myCondition[100];
-            for (int i = 0; i < 100 - 1; i++)
-            {
-                condition[i] = new myCondition();
-            }
+            
+            action = arrAct;
+            possibleValue = arrPos;
+            question = quest;
+            advice = arrAdv;
+            condition = arrCond;
+            nameRule = action[0];
         }
     }
 
