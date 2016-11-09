@@ -8,31 +8,60 @@ namespace WinFormsBookExpertSystem
 {
     public class StudyComponent : IStudyComponent // класс  компонент приобретения знаний
     {
-        public StudyComponentForm frmStudyComp;
-        public KnowledgeBase knowBase;
+
+
+        // TO DO
+       // 1. сохранение правил в файл KnowledgeBase
+       // 2. проверка правила на не противоречивость при Add в StudyComp
+       ////END of TO DO
+
+        public StudyComponentForm FrmStudyComp;
+        public KnowledgeBase KnowBase;
 
         public StudyComponent(KnowledgeBase knwldgBase) // конструктор
         {
 
-            frmStudyComp = new StudyComponentForm(this);
-            knowBase = knwldgBase;
+            FrmStudyComp = new StudyComponentForm(this);
+            KnowBase = knwldgBase;
         }
-        public void addTheRule(RuleJSON rule) // функция добавления правила
+        private bool isRuleInPool(RuleJson rule) // проверяем есть ли правило в базе
         {
-            int n = knowBase.counterRule;
-            knowBase.propRulesPool[n + 1] = rule;
-            knowBase.saveToFile();
+            bool answer = true;
+            for (int i = 0; i < KnowBase.counterRule - 1; i++)
+            {
+                if (KnowBase.PropRulesPool[i] == rule)
+                {
+                    answer = true;
+                    break;
+
+                }
+                else answer = false;
+
+            }
+            return answer;
+
         }
-        public void changeTheRule() // функция изменения правила
+        public void AddTheRule(RuleJson rule) // функция добавления правила
+        {
+            int n = KnowBase.counterRule;
+            if (isRuleInPool(rule) == false)
+            {
+                KnowBase.PropRulesPool[n + 1] = rule;
+                KnowBase.SaveToFile();
+            }
+        }
+        public void ChangeTheRule() // функция изменения правила
         {
             // реализация
         }
         public void ShowForm()
         {
 
-            frmStudyComp.Show();
+            FrmStudyComp.Show();
           //  Form1.ActiveForm.Text = "gthg";
         }
+
+        
 
     }
 }

@@ -9,7 +9,7 @@ namespace WinFormsBookExpertSystem
     public interface IWorkMemory // класс интерфейс для рабочей памяти
     {
         
-        void addFacts(Fact newFact); // функция добавления фактов в рабочую память
+        void AddFacts(Fact newFact); // функция добавления фактов в рабочую память
         
     }
 }

@@ -20,7 +20,7 @@ namespace WinFormsBookExpertSystem
 
         }
 
-        private string[] getArrFromPhrase(string phrase)
+        private string[] GetArrFromPhrase(string phrase)
         {
             int ind = 1;
             string bufLitera = "";
@@ -52,10 +52,10 @@ namespace WinFormsBookExpertSystem
             return arrPosVal;
         }
 
-        private myCondition[] getArrCond(TextBox txtBox)
+        private MyCondition[] GetArrCond(TextBox txtBox)
         {
             int n = txtBox.Lines.Count()-1;
-            myCondition[] arrCond = new myCondition[n];
+            MyCondition[] arrCond = new MyCondition[n];
             string bufLine = "";
             string bufLitera = "";
             string[] bufArr = new string[3];
@@ -78,7 +78,7 @@ namespace WinFormsBookExpertSystem
                     }
                 }
 
-                arrCond[iWrap] = new myCondition(bufArr[1], bufArr[2], bufArr[3]);
+                arrCond[iWrap] = new MyCondition(bufArr[1], bufArr[2], bufArr[3]);
             }
             return arrCond;
         }
@@ -90,15 +90,15 @@ namespace WinFormsBookExpertSystem
         private void btnAddRule_Click(object sender, EventArgs e)
         {
             
-            string[] actVar = getArrFromPhrase(txtBoxNameAct.Text);
-            string[] arrPossibleVal = getArrFromPhrase(txtBoxPosValue.Text);
+            string[] actVar = GetArrFromPhrase(txtBoxNameAct.Text);
+            string[] arrPossibleVal = GetArrFromPhrase(txtBoxPosValue.Text);
             string questVar = txtBoxQuestion.Text;
-            string[] adviceVar = getArrFromPhrase(txtBoxAuthor.Text);
-            myCondition[] arrCondVar = getArrCond(txtBoxCond);
+            string[] adviceVar = GetArrFromPhrase(txtBoxAuthor.Text);
+            MyCondition[] arrCondVar = GetArrCond(txtBoxCond);
             //label1.Text = getArrCond(txtBoxCond).ToString();
 
-            RuleJSON rule = new RuleJSON(actVar, arrPossibleVal, questVar, adviceVar, arrCondVar);
-            lnkStudyComp.addTheRule(rule);
+            RuleJson rule = new RuleJson(actVar, arrPossibleVal, questVar, adviceVar, arrCondVar);
+            lnkStudyComp.AddTheRule(rule);
         }
 
        

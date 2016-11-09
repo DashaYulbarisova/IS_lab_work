@@ -8,5 +8,26 @@ namespace WinFormsBookExpertSystem
 {
     public class Fact // класс факт
     {
+        private string nameFact;
+
+        private string propNameFact
+        {
+            get { return nameFact; }
+            set { nameFact = value; }
+        }
+        private string valueFact;
+
+        private string propValueFact
+        {
+            get { return valueFact; }
+            set { valueFact = value; }
+        }
+
+      
+        public Fact(string name,string val)
+        {
+            nameFact = name;
+            valueFact = val;
+        }
     }
 }
