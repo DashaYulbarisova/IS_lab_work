@@ -12,6 +12,13 @@ namespace WinFormsBookExpertSystem
         public string ValueFact { get; set; }
         public string SignFact { get; set; }
 
+        public string printText()
+        {
+            string txtCondition;
+            txtCondition = "name: " + NameFact + ", " + "value: " + ValueFact + ", " + "sign: " + SignFact;
+            return txtCondition;
+        }
+
         public MyCondition(string nameF, string val,string sign)
         {
             NameFact = nameF;
