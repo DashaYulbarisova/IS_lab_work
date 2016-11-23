@@ -9,7 +9,7 @@ namespace WinFormsBookExpertSystem
     public class ExpertShell //класс фасад
     {
 
-        private WorkMemory _myWorkMemory;
+        private WorkMemory myWorkMemory;
 
 
         //private List<IWorkMemory> myWorkMemories;
@@ -20,14 +20,13 @@ namespace WinFormsBookExpertSystem
         public LogicOutput MyLogicOutput;
         public ExplainComponent MyExplainComponent;
         public KnowledgeBase MyKnowledgeBase;
+
         public ExpertShell() // конструктор
         {
-
-            
-            _myWorkMemory = new WorkMemory(MyStudyComponent);
             MyKnowledgeBase = new KnowledgeBase();
-            MyKnowledgeBase.ReadFromFile();
+         //   MyKnowledgeBase.ReadFromFile();
             MyStudyComponent = new StudyComponent(MyKnowledgeBase);
+            myWorkMemory = new WorkMemory(MyStudyComponent);
             MyLogicOutput = new LogicOutput(MyKnowledgeBase);
             MyExplainComponent = new ExplainComponent(MyLogicOutput);
         }

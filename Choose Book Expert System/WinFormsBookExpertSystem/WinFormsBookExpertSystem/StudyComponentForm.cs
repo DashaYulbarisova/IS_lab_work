@@ -22,11 +22,11 @@ namespace WinFormsBookExpertSystem
 
         private string[] GetArrFromPhrase(string phrase)
         {
-            int ind = 1;
+            int ind = 0;
             string bufLitera = "";
             int n = phrase.Length;
-            int lenArr = 0;
-            for (int i1 = 1; i1 <= n; i1++)
+            int lenArr = 1;
+            for (int i1 = 1; i1 <= n-1; i1++)
             {
                 bufLitera = phrase.Substring(i1, 1);
                 if (bufLitera == ",")
@@ -36,7 +36,7 @@ namespace WinFormsBookExpertSystem
             }
 
             string[] arrPosVal = new string[lenArr];
-            for (int i2 = 1; i2 <= n; i2++)
+            for (int i2 = 0; i2 <= n-1; i2++)
             {
                 bufLitera = phrase.Substring(i2,1);
                 if (bufLitera != ",")
@@ -99,8 +99,18 @@ namespace WinFormsBookExpertSystem
 
             RuleJson rule = new RuleJson(actVar, arrPossibleVal, questVar, adviceVar, arrCondVar);
             lnkStudyComp.AddTheRule(rule);
+            label6.Text = "Правило успешно добавлено!";
+
         }
 
-       
+        private void button2_Click(object sender, EventArgs e)
+        {
+            lnkStudyComp.KnowBase.ReadFromFile();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
