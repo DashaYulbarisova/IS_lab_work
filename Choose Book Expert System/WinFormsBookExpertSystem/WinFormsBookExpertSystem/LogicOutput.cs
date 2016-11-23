@@ -8,21 +8,21 @@ namespace WinFormsBookExpertSystem
 {
     public class LogicOutput : ILogicOutput // класс механизм логического вывода
     {
-        private KnowledgeBase myKnowledgeBase;
+        private KnowledgeBase _myKnowledgeBase;
         public LogicOutput(KnowledgeBase knowledgeBase) // конструктор
         {
-            myKnowledgeBase = knowledgeBase;
+            _myKnowledgeBase = knowledgeBase;
         }
 
-        public void findTheRule() // функция нахождения правила (добавить возвращаемый тип значения)
+        public void FindTheRule() // функция нахождения правила (добавить возвращаемый тип значения)
         {
             // реализация
         }
-        public void askTheQuestion() // функция, задающая вопрос (добавить возвращаемый тип значения) 
+        public void AskTheQuestion() // функция, задающая вопрос (добавить возвращаемый тип значения) 
         {
             // реализация
         }
-        public void getTheAnswer() // функция, которая принимает ответ
+        public void GetTheAnswer() // функция, которая принимает ответ
         {
             // реализация
         }

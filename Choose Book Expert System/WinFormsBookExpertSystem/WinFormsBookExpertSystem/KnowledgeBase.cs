@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
@@ -9,8 +12,8 @@ namespace WinFormsBookExpertSystem
 {
     public class KnowledgeBase // класс база знаний
     {
-        private RuleJSON[] listOfRules; // массив правил
-        public RuleJSON[] propRulesPool // свойство для чтения и редактирования массива правил
+        private RuleJson[] listOfRules; // массив правил
+        public RuleJson[] PropRulesPool // свойство для чтения и редактирования массива правил
         {
             get { return listOfRules; }
             set { listOfRules = value; }
@@ -18,20 +21,42 @@ namespace WinFormsBookExpertSystem
         public int counterRule;
         public KnowledgeBase() // конструктор
         {
-            //
-            listOfRules = new RuleJSON[1000];
+            counterRule = 0;
+            listOfRules = new RuleJson[1000];
             for (int i = 0; i < 999; i++)
             {
-                listOfRules[i] = new RuleJSON(null,null,null,null,null);
+                listOfRules[i] = new RuleJson(null,null,null,null,null);
             }
         }
-        public void saveToFile() // функция сохранения базы знаний в файл
-        { }
-        public void readFromFile() // функция чтения базы знаний из файла
+
+        public void SaveToFile() // функция сохранения базы знаний в файл
+        {
+            MemoryStream stream1 = new MemoryStream();
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(RuleJson));
+            RuleJson p;
+            for (int i = 0; i < counterRule-1; i++)
+            {
+                p = listOfRules[i];
+                ser.WriteObject(stream1, p);
+            }
+
+            stream1.Position = 0;
+            StreamReader sr = new StreamReader(stream1);
+            StreamWriter myStreamWriter;
+            FileInfo fileforstream = new FileInfo("rulesInJson.json");
+            fileforstream.Replace("rulesInJson.json", "backUpRulesInJson.json");
+            myStreamWriter = fileforstream.AppendText();
+            myStreamWriter.WriteLine(sr.ReadToEnd());
+            myStreamWriter.Close();
+           
+
+        }
+
+        public void ReadFromFile() // функция чтения базы знаний из файла
         {
             // реализация чтения из JSON
 
-            int counterRule = 0;
+            
             var json = System.IO.File.ReadAllText("rulesInJson.json");
             var objects = JArray.Parse(json); // parse as array  
 
@@ -44,7 +69,7 @@ namespace WinFormsBookExpertSystem
                 foreach (KeyValuePair<String, JToken> rules in root)
                 {
 
-                    var appName = rules.Key;
+                    //  var appName = rules.Key;
                     //  ruleForTest.advice = (String)rules.Value["advice"];
 
                     //начало
@@ -54,7 +79,7 @@ namespace WinFormsBookExpertSystem
                     do
                     {
                         valuesOfAdviceArr[iAdvice] = (String)bufForAdvice;
-                        listOfRules[counterRule].advice[iAdvice] = valuesOfAdviceArr[iAdvice].ToString();
+                        listOfRules[counterRule].Advice[iAdvice] = valuesOfAdviceArr[iAdvice].ToString();
                         iAdvice++;
                         bufForAdvice = bufForAdvice.Next;
                     }
@@ -69,7 +94,7 @@ namespace WinFormsBookExpertSystem
                     do
                     {
                         valuesOfPosValArr[iPosVal] = (String)bufForPosVal;
-                        listOfRules[counterRule].possibleValue[iPosVal] = valuesOfPosValArr[iPosVal].ToString();
+                        listOfRules[counterRule].PossibleValue[iPosVal] = valuesOfPosValArr[iPosVal].ToString();
                         iPosVal++;
                         bufForPosVal = bufForPosVal.Next;
                     }
@@ -85,7 +110,7 @@ namespace WinFormsBookExpertSystem
                     do
                     {
                         valuesOfActionArr[iAction] = (String)bufForAction;
-                        listOfRules[counterRule].action[iAction] = valuesOfActionArr[iAction].ToString();
+                        listOfRules[counterRule].Action[iAction] = valuesOfActionArr[iAction].ToString();
                         iAction++;
                         bufForAction = bufForAction.Next;
                     }
@@ -101,9 +126,9 @@ namespace WinFormsBookExpertSystem
                         JToken value = bufForCondition.First.Next;
                         JToken sign = bufForCondition.First.Next.Next;
 
-                        listOfRules[counterRule].condition[i].nameFact = name.First.ToString();
-                        listOfRules[counterRule].condition[i].valueFact = value.First.ToString();
-                        listOfRules[counterRule].condition[i].signFact = sign.First.ToString();
+                        listOfRules[counterRule].Condition[i].NameFact = name.First.ToString();
+                        listOfRules[counterRule].Condition[i].ValueFact = value.First.ToString();
+                        listOfRules[counterRule].Condition[i].SignFact = sign.First.ToString();
 
                         i++;
 

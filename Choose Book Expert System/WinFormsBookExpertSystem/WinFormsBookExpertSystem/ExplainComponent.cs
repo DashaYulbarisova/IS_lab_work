@@ -8,16 +8,16 @@ namespace WinFormsBookExpertSystem
 {
     public class ExplainComponent : IExplainComponent // компонент объяснения
     {
-        private ILogicOutput myLogicOutput;
+        private ILogicOutput _myLogicOutput;
         public ExplainComponent(ILogicOutput logicOutput) // конструктор
         {
-            myLogicOutput = logicOutput;
+            _myLogicOutput = logicOutput;
         }
-        public void explainResults() // функция объяснения результатов
+        public void ExplainResults() // функция объяснения результатов
         {
             // реализация
         }
-        public void print() // функция отображения объяснения
+        public void Print() // функция отображения объяснения
         {
             // реализация
         }

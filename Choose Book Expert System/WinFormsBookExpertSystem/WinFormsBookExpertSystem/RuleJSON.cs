@@ -1,42 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using Newtonsoft.Json.Linq;
 
 namespace WinFormsBookExpertSystem
 {
-    public class myCondition // вспомогательный класс для хранения условий
+    public class MyCondition // вспомогательный класс для хранения условий
     {
 
-        public string nameFact { get; set; }
-        public string valueFact { get; set; }
-        public string signFact { get; set; }
+        public string NameFact { get; set; }
+        public string ValueFact { get; set; }
+        public string SignFact { get; set; }
 
-        public myCondition(string nameF, string val,string sign)
+        public MyCondition(string nameF, string val,string sign)
         {
-            nameFact = nameF;
-            valueFact = val;
-            signFact = sign;
+            NameFact = nameF;
+            ValueFact = val;
+            SignFact = sign;
         }
     }
 
-    public class RuleJSON 
-    {
-        public string[] action { get; set; }
-        public string[] advice { get; set; }
-        public myCondition[] condition;
-        public string[] possibleValue { get; set; }
-        public string question { get; set; }
-        public string nameRule;
+    [DataContract]
 
-        public RuleJSON(string[]arrAct, string[] arrPos,string quest, string[]arrAdv,myCondition[] arrCond)
+    public class RuleJson 
+    {
+        [DataMember]
+        public string[] Action { get; set; }
+        [DataMember]
+        public string[] Advice { get; set; }
+        [DataMember]
+        public MyCondition[] Condition;
+        [DataMember]
+        public string[] PossibleValue { get; set; }
+        [DataMember]
+        public string Question { get; set; }
+        [DataMember]
+        public string NameRule;
+
+        public RuleJson(string[]arrAct, string[] arrPos,string quest, string[]arrAdv,MyCondition[] arrCond)
         {
             
-            action = arrAct;
-            possibleValue = arrPos;
-            question = quest;
-            advice = arrAdv;
-            condition = arrCond;
-            nameRule = action[0];
+            Action = arrAct;
+            PossibleValue = arrPos;
+            Question = quest;
+            Advice = arrAdv;
+            Condition = arrCond;
+            NameRule = Action[0];
         }
     }
 
