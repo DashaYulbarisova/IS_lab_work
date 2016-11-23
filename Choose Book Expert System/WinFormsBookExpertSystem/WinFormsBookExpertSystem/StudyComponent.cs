@@ -29,7 +29,7 @@ namespace WinFormsBookExpertSystem
             bool answer = true;
             for (int i = 0; i < KnowBase.counterRule - 1; i++)
             {
-                if (KnowBase.PropRulesPool[i] == rule)
+                if (KnowBase.PropRulesPool[i].NameRule == rule.NameRule)
                 {
                     answer = true;
                     break;
@@ -43,12 +43,15 @@ namespace WinFormsBookExpertSystem
         }
         public void AddTheRule(RuleJson rule) // функция добавления правила
         {
-            int n = KnowBase.counterRule;
-            if (isRuleInPool(rule) == false)
-            {
+            //int n = KnowBase.counterRule;
+            int n = 0;
+            //  if (isRuleInPool(rule) == false)
+          // {
                 KnowBase.PropRulesPool[n + 1] = rule;
+                KnowBase.counterRule = KnowBase.counterRule + 1;
                 KnowBase.SaveToFile();
-            }
+
+            //}
         }
         public void ChangeTheRule() // функция изменения правила
         {

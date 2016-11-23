@@ -12,7 +12,7 @@ namespace WinFormsBookExpertSystem
 {
     public partial class Form1 : Form
     {
-        private ExpertShell _workShell;
+        private ExpertShell workShell;
 
         public Form1()
         {
@@ -21,12 +21,17 @@ namespace WinFormsBookExpertSystem
 
         private void btnStudyComp_Click(object sender, EventArgs e)
         {
-            _workShell.MyStudyComponent.ShowForm();
+            workShell.MyStudyComponent.ShowForm();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            _workShell = new ExpertShell();
+           
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            workShell = new ExpertShell();
         }
     }
 }

@@ -45,7 +45,7 @@ namespace WinFormsBookExpertSystem
             Question = quest;
             Advice = arrAdv;
             Condition = arrCond;
-            NameRule = Action[0];
+            NameRule = arrAct[0];
         }
     }
 

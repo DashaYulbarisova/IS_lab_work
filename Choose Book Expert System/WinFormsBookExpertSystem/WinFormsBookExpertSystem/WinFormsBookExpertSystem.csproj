@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddConditionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddConditionForm.Designer.cs">
+      <DependentUpon>AddConditionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fact.cs" />
     <Compile Include="RuleJSON.cs" />
     <Compile Include="StudyComponent.cs" />
@@ -76,6 +82,9 @@
       <DependentUpon>StudyComponentForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WorkMemory.cs" />
+    <EmbeddedResource Include="AddConditionForm.resx">
+      <DependentUpon>AddConditionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
