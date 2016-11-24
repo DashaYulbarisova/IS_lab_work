@@ -96,6 +96,7 @@
             this.btnAddCondition.TabIndex = 6;
             this.btnAddCondition.Text = "Добавить";
             this.btnAddCondition.UseVisualStyleBackColor = true;
+            this.btnAddCondition.Click += new System.EventHandler(this.btnAddCondition_Click);
             // 
             // AddConditionForm
             // 

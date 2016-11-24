@@ -8,7 +8,7 @@ namespace WinFormsBookExpertSystem
 {
     public interface IStudyComponent // класс интерфейс компонента приобретения знаний
     {
-        void AddTheRule(RuleJson rule); // функция добавления правила
+        bool AddTheRule(RuleJson rule); // функция добавления правила
         void ChangeTheRule(); // функция изменения правила
     }
 }

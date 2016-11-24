@@ -12,9 +12,19 @@ namespace WinFormsBookExpertSystem
 {
     public partial class AddConditionForm : Form
     {
-        public AddConditionForm()
+        private StudyComponentForm studyComponentForm;
+        public AddConditionForm(StudyComponentForm myStudyComponentForm)
         {
+            studyComponentForm = myStudyComponentForm;
             InitializeComponent();
+        }
+
+        private void btnAddCondition_Click(object sender, EventArgs e)
+        {
+            MyCondition newMyCondition1 = new MyCondition(txtBoxNameFact.Text, txtBoxValueFact.Text, txtBoxSign.Text);
+            studyComponentForm.newMyCondition.Add(newMyCondition1);
+            studyComponentForm.txtBoxCond.Text = studyComponentForm.txtBoxCond.Text+newMyCondition1.printText()+ Environment.NewLine;
+            this.Close();
         }
     }
 }
