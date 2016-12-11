@@ -29,33 +29,106 @@
         private void InitializeComponent()
         {
             this.btnStudyComp = new System.Windows.Forms.Button();
+            this.bthStartTest = new System.Windows.Forms.Button();
+            this.btnAccept = new System.Windows.Forms.Button();
+            this.lbtQuestionText = new System.Windows.Forms.Label();
+            this.lblPosValue = new System.Windows.Forms.Label();
+            this.txtBoxInput = new System.Windows.Forms.TextBox();
+            this.lblInput = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnStudyComp
             // 
-            this.btnStudyComp.Location = new System.Drawing.Point(12, 21);
+            this.btnStudyComp.Location = new System.Drawing.Point(234, 12);
             this.btnStudyComp.Name = "btnStudyComp";
-            this.btnStudyComp.Size = new System.Drawing.Size(163, 68);
+            this.btnStudyComp.Size = new System.Drawing.Size(173, 29);
             this.btnStudyComp.TabIndex = 0;
-            this.btnStudyComp.Text = "Компонент приобретения знаний";
+            this.btnStudyComp.Text = "Добавить знания";
             this.btnStudyComp.UseVisualStyleBackColor = true;
             this.btnStudyComp.Click += new System.EventHandler(this.btnStudyComp_Click);
+            // 
+            // bthStartTest
+            // 
+            this.bthStartTest.Location = new System.Drawing.Point(31, 12);
+            this.bthStartTest.Name = "bthStartTest";
+            this.bthStartTest.Size = new System.Drawing.Size(173, 29);
+            this.bthStartTest.TabIndex = 1;
+            this.bthStartTest.Text = "Запустить тест";
+            this.bthStartTest.UseVisualStyleBackColor = true;
+            this.bthStartTest.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // btnAccept
+            // 
+            this.btnAccept.Location = new System.Drawing.Point(300, 205);
+            this.btnAccept.Name = "btnAccept";
+            this.btnAccept.Size = new System.Drawing.Size(107, 33);
+            this.btnAccept.TabIndex = 2;
+            this.btnAccept.Text = "Подтвердить";
+            this.btnAccept.UseVisualStyleBackColor = true;
+            // 
+            // lbtQuestionText
+            // 
+            this.lbtQuestionText.AutoSize = true;
+            this.lbtQuestionText.Location = new System.Drawing.Point(28, 93);
+            this.lbtQuestionText.Name = "lbtQuestionText";
+            this.lbtQuestionText.Size = new System.Drawing.Size(47, 13);
+            this.lbtQuestionText.TabIndex = 3;
+            this.lbtQuestionText.Text = "Вопрос:";
+            // 
+            // lblPosValue
+            // 
+            this.lblPosValue.AutoSize = true;
+            this.lblPosValue.Location = new System.Drawing.Point(28, 152);
+            this.lblPosValue.Name = "lblPosValue";
+            this.lblPosValue.Size = new System.Drawing.Size(97, 13);
+            this.lblPosValue.TabIndex = 4;
+            this.lblPosValue.Text = "Варианты ответа:";
+            // 
+            // txtBoxInput
+            // 
+            this.txtBoxInput.Location = new System.Drawing.Point(146, 212);
+            this.txtBoxInput.Name = "txtBoxInput";
+            this.txtBoxInput.Size = new System.Drawing.Size(117, 20);
+            this.txtBoxInput.TabIndex = 5;
+            // 
+            // lblInput
+            // 
+            this.lblInput.AutoSize = true;
+            this.lblInput.Location = new System.Drawing.Point(28, 215);
+            this.lblInput.Name = "lblInput";
+            this.lblInput.Size = new System.Drawing.Size(83, 13);
+            this.lblInput.TabIndex = 6;
+            this.lblInput.Text = "Введите ответ:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 276);
+            this.ClientSize = new System.Drawing.Size(438, 270);
+            this.Controls.Add(this.lblInput);
+            this.Controls.Add(this.txtBoxInput);
+            this.Controls.Add(this.lblPosValue);
+            this.Controls.Add(this.lbtQuestionText);
+            this.Controls.Add(this.btnAccept);
+            this.Controls.Add(this.bthStartTest);
             this.Controls.Add(this.btnStudyComp);
             this.Name = "Form1";
             this.Text = "Экспертная система";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.Button btnStudyComp;
+        private System.Windows.Forms.Button bthStartTest;
+        private System.Windows.Forms.Button btnAccept;
+        private System.Windows.Forms.Label lbtQuestionText;
+        private System.Windows.Forms.Label lblPosValue;
+        private System.Windows.Forms.TextBox txtBoxInput;
+        private System.Windows.Forms.Label lblInput;
     }
 }
 

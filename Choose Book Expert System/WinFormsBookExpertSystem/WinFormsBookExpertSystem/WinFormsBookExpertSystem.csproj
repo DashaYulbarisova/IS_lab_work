@@ -57,7 +57,7 @@
       <DependentUpon>AddConditionForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Fact.cs" />
-    <Compile Include="RuleJSON.cs" />
+    <Compile Include="Rule.cs" />
     <Compile Include="StudyComponent.cs" />
     <Compile Include="ExpertShell.cs" />
     <Compile Include="ExplainComponent.cs" />

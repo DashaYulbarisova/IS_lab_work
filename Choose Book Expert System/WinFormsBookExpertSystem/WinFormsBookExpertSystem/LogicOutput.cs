@@ -14,9 +14,22 @@ namespace WinFormsBookExpertSystem
             _myKnowledgeBase = knowledgeBase;
         }
 
-        public void FindTheRule() // функция нахождения правила (добавить возвращаемый тип значения)
+        public Rule FindTheRule(Fact fact) // функция нахождения правила (добавить возвращаемый тип значения)
         {
-            // реализация
+            Rule returnRule = null;
+            foreach (Rule rule in _myKnowledgeBase.PropRulesPool)
+            {
+                foreach (MyCondition condition in rule.Condition)
+                {
+                    if ((condition.NameFact == fact.propNameFact) && (condition.ValueFact == fact.propValueFact))
+                    {
+                        returnRule = rule;
+                        break;                     
+                    }
+                }
+            }
+            return returnRule;            
+            
         }
         public void AskTheQuestion() // функция, задающая вопрос (добавить возвращаемый тип значения) 
         {

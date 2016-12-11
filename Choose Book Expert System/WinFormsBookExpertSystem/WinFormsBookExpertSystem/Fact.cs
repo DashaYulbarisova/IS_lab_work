@@ -10,14 +10,14 @@ namespace WinFormsBookExpertSystem
     {
         private string nameFact;
 
-        private string propNameFact
+        public string propNameFact
         {
             get { return nameFact; }
             set { nameFact = value; }
         }
         private string valueFact;
 
-        private string propValueFact
+        public string propValueFact
         {
             get { return valueFact; }
             set { valueFact = value; }
