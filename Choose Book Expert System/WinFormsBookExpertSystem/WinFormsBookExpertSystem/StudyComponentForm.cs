@@ -20,31 +20,27 @@ namespace WinFormsBookExpertSystem
             lnkStudyComp = studyComp;
 
         }
-        private string[] GetArrFromPhrase(string phrase)
+        private List<string> GetArrFromPhrase(string phrase)
         {
             int ind = 0;
             string bufLitera = "";
             int n = phrase.Length;
-            int lenArr = 1;
-            for (int i1 = 1; i1 <= n-1; i1++)
-            {
-                bufLitera = phrase.Substring(i1, 1);
-                if (bufLitera == ",")
-                {
-                    lenArr++;
-                }
-            }
-
-            string[] arrPosVal = new string[lenArr];
+         
+            List<string> arrPosVal = new List<string>();
+            arrPosVal.Add("");
             for (int i2 = 0; i2 <= n-1; i2++)
             {
+
                 bufLitera = phrase.Substring(i2,1);
+               
                 if (bufLitera != ",")
                 {
-                    arrPosVal[ind] = arrPosVal[ind] + bufLitera;
+                    
+                    arrPosVal[ind]= arrPosVal[ind] + bufLitera;
                 }
                 else
                 {
+                    arrPosVal.Add("");
                     ind++;
                 }           
             }
@@ -59,13 +55,16 @@ namespace WinFormsBookExpertSystem
         private void btnAddRule_Click(object sender, EventArgs e)
         {
             
-            string[] actVar = GetArrFromPhrase(txtBoxNameAct.Text);
-            string[] arrPossibleVal = GetArrFromPhrase(txtBoxPosValue.Text);
+            List<string> actVar = GetArrFromPhrase(txtBoxNameAct.Text);
+            List<string> arrPossibleVal = GetArrFromPhrase(txtBoxPosValue.Text);
             string questVar = txtBoxQuestion.Text;
-            string[] adviceVar = GetArrFromPhrase(txtBoxAuthor.Text);
-            MyCondition[] arrCondVar = this.newMyCondition.ToArray();
+            List<string> adviceVar = GetArrFromPhrase(txtBoxAuthor.Text);
+            List<MyCondition> arrCondVar = this.newMyCondition;
             //label1.Text = getArrCond(txtBoxCond).ToString();
-            RuleJson rule = new RuleJson(actVar, arrPossibleVal, questVar, adviceVar, arrCondVar);
+            Rule rule = new Rule(actVar, arrPossibleVal, questVar, adviceVar, arrCondVar);
+            List<Rule> lR = new List<Rule>();
+            lR.Add(rule);
+            lnkStudyComp.KnowBase.SaveToFile();
             if (lnkStudyComp.AddTheRule(rule) == true)
             {
                 MessageBox.Show("Правило успешно добавлено!");

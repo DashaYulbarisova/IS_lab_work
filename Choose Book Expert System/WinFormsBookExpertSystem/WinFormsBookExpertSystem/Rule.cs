@@ -27,24 +27,24 @@ namespace WinFormsBookExpertSystem
         }
     }
 
-    [DataContract]
 
-    public class RuleJson 
+
+    public class Rule 
     {
-        [DataMember]
-        public string[] Action { get; set; }
-        [DataMember]
-        public string[] Advice { get; set; }
-        [DataMember]
-        public MyCondition[] Condition;
-        [DataMember]
-        public string[] PossibleValue { get; set; }
-        [DataMember]
+
+        public List<string> Action { get; set; }
+
+        public List<string> Advice { get; set; }
+
+        public List<MyCondition> Condition;
+
+        public List<string> PossibleValue { get; set; }
+
         public string Question { get; set; }
-        [DataMember]
+
         public string NameRule;
 
-        public RuleJson(string[]arrAct, string[] arrPos,string quest, string[]arrAdv,MyCondition[] arrCond)
+        public Rule(List<string> arrAct, List<string> arrPos,string quest, List<string> arrAdv, List<MyCondition> arrCond)
         {
             
             Action = arrAct;

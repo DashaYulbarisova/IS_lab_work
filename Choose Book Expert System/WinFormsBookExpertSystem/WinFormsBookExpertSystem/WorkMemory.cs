@@ -8,7 +8,7 @@ namespace WinFormsBookExpertSystem
 {
     public class WorkMemory : IWorkMemory // класс рабочая память
     {
-        private Fact[] factArray; // массив фактов 
+        private List<Fact> factArray; // массив фактов 
         private IStudyComponent myStudyComponent;
         private int countFact;
 
@@ -22,7 +22,7 @@ namespace WinFormsBookExpertSystem
         {
             countFact = 0;
             myStudyComponent = studyComponent;
-            factArray = new Fact[1000]; // создаем пустой массив для фактов (допустим, 1000 элементов)
+            factArray = new List<Fact>(); // создаем пустой массив для фактов (допустим, 1000 элементов)
         }
 
         private bool isFactInWorkMemory(Fact fact)
@@ -31,7 +31,7 @@ namespace WinFormsBookExpertSystem
             bool answer = true;
             for (int i = 0; i < countFact - 1; i++)
             {
-                if (factArray[i] == fact)
+                if ((factArray[i].propNameFact == fact.propNameFact) &&(factArray[i].propValueFact == fact.propValueFact))
                 {
                     answer = true;
                     break;
@@ -49,10 +49,16 @@ namespace WinFormsBookExpertSystem
             //реализация интерфейса
             if (isFactInWorkMemory(newFact) == false)
             {
-                factArray[countFact] = newFact;
+                factArray.Add(newFact);
                 countFact = countFact + 1;
             }
+           
 
+        }
+        public void clearMemory()
+        {
+            factArray.Clear();
+            countFact = 0;
         }
 
     }

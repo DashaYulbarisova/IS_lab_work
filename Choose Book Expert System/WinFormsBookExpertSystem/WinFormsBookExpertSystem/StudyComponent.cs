@@ -15,7 +15,7 @@ namespace WinFormsBookExpertSystem
             FrmStudyComp = new StudyComponentForm(this);
             KnowBase = knwldgBase;
         }
-        private bool isRuleInPool(RuleJson rule) // проверяем есть ли правило в базе
+        private bool isRuleInPool(Rule rule) // проверяем есть ли правило в базе
         {
             bool answer = false;
             for (int i = 0; i < KnowBase.counterRule ; i++)
@@ -29,14 +29,15 @@ namespace WinFormsBookExpertSystem
             }
             return answer;
         }
-        public bool AddTheRule(RuleJson rule) // функция добавления правила
+        public bool AddTheRule(Rule rule) // функция добавления правила
         {
             bool added = false;
             //int n = KnowBase.counterRule;
             int n = 0;
              if (isRuleInPool(rule) == false)
            {
-                KnowBase.PropRulesPool[n] = rule;
+                //KnowBase.PropRulesPool[n] = rule;
+                KnowBase.PropRulesPool.Add(rule);
                 KnowBase.counterRule = KnowBase.counterRule + 1;
                added = true;
                //  KnowBase.SaveToFile();

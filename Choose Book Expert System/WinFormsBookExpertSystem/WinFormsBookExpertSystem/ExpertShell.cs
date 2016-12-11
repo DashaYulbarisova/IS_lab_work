@@ -9,13 +9,7 @@ namespace WinFormsBookExpertSystem
     public class ExpertShell //класс фасад
     {
 
-        private WorkMemory myWorkMemory;
-
-
-        //private List<IWorkMemory> myWorkMemories;
-
-
-
+        public WorkMemory myWorkMemory;
         public StudyComponent MyStudyComponent;
         public LogicOutput MyLogicOutput;
         public ExplainComponent MyExplainComponent;
