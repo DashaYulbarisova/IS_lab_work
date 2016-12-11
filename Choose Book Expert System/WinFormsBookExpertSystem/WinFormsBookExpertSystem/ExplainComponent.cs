@@ -16,6 +16,7 @@ namespace WinFormsBookExpertSystem
         public void ExplainResults() // функция объяснения результатов
         {
             // реализация
+            
         }
         public void Print() // функция отображения объяснения
         {

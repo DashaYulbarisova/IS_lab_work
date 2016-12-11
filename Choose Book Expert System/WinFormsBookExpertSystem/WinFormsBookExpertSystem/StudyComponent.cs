@@ -33,12 +33,11 @@ namespace WinFormsBookExpertSystem
         {
             bool added = false;
             //int n = KnowBase.counterRule;
-            int n = 0;
+           
              if (isRuleInPool(rule) == false)
            {
-                //KnowBase.PropRulesPool[n] = rule;
-                KnowBase.PropRulesPool.Add(rule);
-                KnowBase.counterRule = KnowBase.counterRule + 1;
+               KnowBase.PropRulesPool.Add(rule);
+               KnowBase.counterRule = KnowBase.counterRule + 1;
                added = true;
                //  KnowBase.SaveToFile();
 

@@ -44,6 +44,8 @@ namespace WinFormsBookExpertSystem
 
         public string NameRule;
 
+        public bool used;
+
         public Rule(List<string> arrAct, List<string> arrPos,string quest, List<string> arrAdv, List<MyCondition> arrCond)
         {
             

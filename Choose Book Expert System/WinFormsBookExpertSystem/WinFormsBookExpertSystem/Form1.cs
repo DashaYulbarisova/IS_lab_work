@@ -45,6 +45,8 @@ namespace WinFormsBookExpertSystem
                 lblInput.Visible = true;
                 txtBoxInput.Visible = true;
                 btnAccept.Visible = true;
+                firstRule.used = true;
+                workShell.myWorkMemory.bufFact = new Fact(firstRule.NameRule,"");
             }
             else
             {
@@ -61,7 +63,59 @@ namespace WinFormsBookExpertSystem
             lbtQuestionText.Text = "";
             lblPosValue.Text = "";
             lblInput.Visible = false;
-            txtBoxInput.Visible = false;            
+            txtBoxInput.Visible = false;
+            btnExplain.Visible = false;
+        }
+
+        private void btnAccept_Click(object sender, EventArgs e)
+        {
+            workShell.myWorkMemory.bufFact.propValueFact = txtBoxInput.Text;
+            Fact addFact = workShell.myWorkMemory.bufFact;
+            workShell.myWorkMemory.AddFacts(addFact);
+            Rule nextRule = workShell.MyLogicOutput.FindTheRule(addFact);
+            if (nextRule != null)
+            {
+                lbtQuestionText.Text = "Вопрос: " + nextRule.Question;
+                lblPosValue.Text = "Варианты ответов: ";
+                foreach (string posVal in nextRule.PossibleValue)
+                {
+                    lblPosValue.Text = lblPosValue.Text + " " + posVal;
+                }
+                lblInput.Visible = true;
+                txtBoxInput.Visible = true;
+                btnAccept.Visible = true;
+                nextRule.used = true;
+                workShell.myWorkMemory.bufFact = new Fact(nextRule.NameRule,"");
+            }
+            else
+            {
+                Fact finalFact = workShell.myWorkMemory.bufFact;
+                
+                Rule lastWorkedRule = workShell.MyLogicOutput.FindRuleByName(finalFact.propNameFact);
+                int indexAdvice = -1;
+                for (int i=0;i<((lastWorkedRule.PossibleValue.Count));i++)
+                {
+                    if (lastWorkedRule.PossibleValue[i] == finalFact.propValueFact)
+                    {
+                        indexAdvice = i;
+                        break;
+                    }
+                }
+                string adviceText = lastWorkedRule.Advice[indexAdvice];
+                MessageBox.Show("Советуем прочитать: " + lastWorkedRule.Advice[indexAdvice]);
+                btnExplain.Visible = true;
+                lbtQuestionText.Text = "";
+                lblPosValue.Text = "";
+                lblInput.Text = "";
+                txtBoxInput.Visible = false;
+            }
+
+
+        }
+
+        private void btnExplain_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
