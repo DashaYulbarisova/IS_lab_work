@@ -28,9 +28,32 @@ namespace WinFormsBookExpertSystem
                     }
                 }
             }
+
+
             return returnRule;            
             
         }
+
+        public Rule FindRuleByName(string nameFact) // функция нахождения правила по имени правила
+        {
+            Rule returnRule = null;
+            foreach (Rule rule in _myKnowledgeBase.PropRulesPool)
+            {
+            
+            if ((rule.NameRule == nameFact)&&(rule.used == true))
+            {
+                       returnRule = rule;
+                       break;
+            }
+            
+            }
+
+
+            return returnRule;
+
+        }
+
+
         public void AskTheQuestion() // функция, задающая вопрос (добавить возвращаемый тип значения) 
         {
             // реализация

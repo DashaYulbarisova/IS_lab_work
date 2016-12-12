@@ -52,9 +52,19 @@ namespace WinFormsBookExpertSystem
             label6.Text = "";
             txtBoxCond.Enabled = false;
         }
+
+        private void ClearAllTextBox()
+        {
+            txtBoxNameAct.Text = "";
+            txtBoxPosValue.Text = "";
+            txtBoxQuestion.Text = "";
+            txtBoxAuthor.Text = "";
+            txtBoxCond.Text = "";
+
+        }
+
         private void btnAddRule_Click(object sender, EventArgs e)
         {
-            
             List<string> actVar = GetArrFromPhrase(txtBoxNameAct.Text);
             List<string> arrPossibleVal = GetArrFromPhrase(txtBoxPosValue.Text);
             string questVar = txtBoxQuestion.Text;
@@ -63,16 +73,18 @@ namespace WinFormsBookExpertSystem
             //label1.Text = getArrCond(txtBoxCond).ToString();
             Rule rule = new Rule(actVar, arrPossibleVal, questVar, adviceVar, arrCondVar);
             List<Rule> lR = new List<Rule>();
-            lR.Add(rule);
+            lR.Add(rule); // что за??????
             lnkStudyComp.KnowBase.SaveToFile();
             if (lnkStudyComp.AddTheRule(rule) == true)
             {
                 MessageBox.Show("Правило успешно добавлено!");
+                ClearAllTextBox();
             }
            else
            {
                 MessageBox.Show("Правило уже есть в базе!");
-           }
+                ClearAllTextBox();
+            }
         }
       
         private void button1_Click(object sender, EventArgs e)
@@ -80,5 +92,6 @@ namespace WinFormsBookExpertSystem
             AddConditionForm myAddConditionForm = new AddConditionForm(this);
             myAddConditionForm.Show();
         }
+        
     }
 }

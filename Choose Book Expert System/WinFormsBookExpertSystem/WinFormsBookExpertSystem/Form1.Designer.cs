@@ -35,6 +35,7 @@
             this.lblPosValue = new System.Windows.Forms.Label();
             this.txtBoxInput = new System.Windows.Forms.TextBox();
             this.lblInput = new System.Windows.Forms.Label();
+            this.btnExplain = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStudyComp
@@ -59,17 +60,18 @@
             // 
             // btnAccept
             // 
-            this.btnAccept.Location = new System.Drawing.Point(300, 205);
+            this.btnAccept.Location = new System.Drawing.Point(300, 177);
             this.btnAccept.Name = "btnAccept";
             this.btnAccept.Size = new System.Drawing.Size(107, 33);
             this.btnAccept.TabIndex = 2;
             this.btnAccept.Text = "Подтвердить";
             this.btnAccept.UseVisualStyleBackColor = true;
+            this.btnAccept.Click += new System.EventHandler(this.btnAccept_Click);
             // 
             // lbtQuestionText
             // 
             this.lbtQuestionText.AutoSize = true;
-            this.lbtQuestionText.Location = new System.Drawing.Point(28, 93);
+            this.lbtQuestionText.Location = new System.Drawing.Point(28, 69);
             this.lbtQuestionText.Name = "lbtQuestionText";
             this.lbtQuestionText.Size = new System.Drawing.Size(47, 13);
             this.lbtQuestionText.TabIndex = 3;
@@ -78,7 +80,7 @@
             // lblPosValue
             // 
             this.lblPosValue.AutoSize = true;
-            this.lblPosValue.Location = new System.Drawing.Point(28, 152);
+            this.lblPosValue.Location = new System.Drawing.Point(28, 130);
             this.lblPosValue.Name = "lblPosValue";
             this.lblPosValue.Size = new System.Drawing.Size(97, 13);
             this.lblPosValue.TabIndex = 4;
@@ -86,7 +88,7 @@
             // 
             // txtBoxInput
             // 
-            this.txtBoxInput.Location = new System.Drawing.Point(146, 212);
+            this.txtBoxInput.Location = new System.Drawing.Point(147, 187);
             this.txtBoxInput.Name = "txtBoxInput";
             this.txtBoxInput.Size = new System.Drawing.Size(117, 20);
             this.txtBoxInput.TabIndex = 5;
@@ -94,17 +96,28 @@
             // lblInput
             // 
             this.lblInput.AutoSize = true;
-            this.lblInput.Location = new System.Drawing.Point(28, 215);
+            this.lblInput.Location = new System.Drawing.Point(28, 187);
             this.lblInput.Name = "lblInput";
             this.lblInput.Size = new System.Drawing.Size(83, 13);
             this.lblInput.TabIndex = 6;
             this.lblInput.Text = "Введите ответ:";
             // 
+            // btnExplain
+            // 
+            this.btnExplain.Location = new System.Drawing.Point(300, 227);
+            this.btnExplain.Name = "btnExplain";
+            this.btnExplain.Size = new System.Drawing.Size(108, 32);
+            this.btnExplain.TabIndex = 7;
+            this.btnExplain.Text = "Объяснение ";
+            this.btnExplain.UseVisualStyleBackColor = true;
+            this.btnExplain.Click += new System.EventHandler(this.btnExplain_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 270);
+            this.ClientSize = new System.Drawing.Size(438, 271);
+            this.Controls.Add(this.btnExplain);
             this.Controls.Add(this.lblInput);
             this.Controls.Add(this.txtBoxInput);
             this.Controls.Add(this.lblPosValue);
@@ -129,6 +142,7 @@
         private System.Windows.Forms.Label lblPosValue;
         private System.Windows.Forms.TextBox txtBoxInput;
         private System.Windows.Forms.Label lblInput;
+        private System.Windows.Forms.Button btnExplain;
     }
 }
 
