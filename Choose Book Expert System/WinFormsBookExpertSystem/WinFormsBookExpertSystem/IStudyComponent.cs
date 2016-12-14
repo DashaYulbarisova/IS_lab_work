@@ -9,6 +9,6 @@ namespace WinFormsBookExpertSystem
     public interface IStudyComponent // класс интерфейс компонента приобретения знаний
     {
         bool AddTheRule(Rule rule); // функция добавления правила
-        void ChangeTheRule(); // функция изменения правила
+       // void ChangeTheRule(); // функция изменения правила
     }
 }

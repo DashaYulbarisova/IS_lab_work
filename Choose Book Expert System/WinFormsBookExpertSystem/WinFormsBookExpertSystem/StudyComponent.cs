@@ -44,10 +44,10 @@ namespace WinFormsBookExpertSystem
            }
             return added;
         }
-        public void ChangeTheRule() // функция изменения правила
-        {
-            // реализация
-        }
+        //public void ChangeTheRule() // функция изменения правила
+        //{
+        //    // реализация
+        //}
         public void ShowForm()
         {
             FrmStudyComp.Show();

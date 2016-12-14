@@ -19,6 +19,11 @@ namespace WinFormsBookExpertSystem
             set { countFact = value; }
         }
 
+        public int getCountFact()
+        {
+            return countFact;
+        }
+
         public WorkMemory (IStudyComponent studyComponent) // конструктор
         {
             countFact = 0;

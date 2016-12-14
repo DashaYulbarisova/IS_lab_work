@@ -22,7 +22,7 @@ namespace WinFormsBookExpertSystem
             MyStudyComponent = new StudyComponent(MyKnowledgeBase);
             myWorkMemory = new WorkMemory(MyStudyComponent);
             MyLogicOutput = new LogicOutput(MyKnowledgeBase);
-            MyExplainComponent = new ExplainComponent(MyLogicOutput);
+            MyExplainComponent = new ExplainComponent(MyLogicOutput,myWorkMemory);
         }
     }
 }

@@ -108,14 +108,15 @@ namespace WinFormsBookExpertSystem
                 lblPosValue.Text = "";
                 lblInput.Text = "";
                 txtBoxInput.Visible = false;
-            }
-
-
+            }            
         }
 
         private void btnExplain_Click(object sender, EventArgs e)
         {
-
+            string explanaionResults = "";
+            workShell.MyExplainComponent.ExplainResults();
+            explanaionResults = workShell.MyExplainComponent.Print();
+            MessageBox.Show("Объяснение: " + Environment.NewLine + explanaionResults);
         }
     }
 }

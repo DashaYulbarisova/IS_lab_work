@@ -56,6 +56,42 @@ namespace WinFormsBookExpertSystem
             Condition = arrCond;
             NameRule = arrAct[0];
         }
+        public string Print()
+        {
+            string conditionText = "";
+            string adviceText = "";
+            string posValueText = "";
+            string actionText = "";
+
+            foreach (MyCondition conditionItem in Condition)
+            {
+                conditionText = conditionText +conditionItem.printText()+ Environment.NewLine;
+            }
+
+            foreach (string adviceItem in Advice)
+            {
+                adviceText = adviceText + adviceItem + Environment.NewLine;
+            }
+
+            foreach (string posValueItem in PossibleValue)
+            {
+                posValueText = posValueText + posValueItem + Environment.NewLine;
+            }
+
+            foreach (string actionItem in Action)
+            {
+                actionText = actionText + actionItem + Environment.NewLine;
+            }
+
+
+            string str = "Название правила: " + NameRule + Environment.NewLine +
+                         "Условия срабатывания:" + conditionText +
+                         "Вопрос: " + Question + Environment.NewLine +
+                         "Возможные значения: " + posValueText +
+                         "Советы: " + adviceText +
+                         "Действие:" + actionText;
+            return str;
+        }
     }
 
 }
