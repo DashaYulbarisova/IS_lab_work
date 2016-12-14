@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookExpertFrame
 {
-    public class WorkMemory
+    public class Subframe
     {
     }
 }
