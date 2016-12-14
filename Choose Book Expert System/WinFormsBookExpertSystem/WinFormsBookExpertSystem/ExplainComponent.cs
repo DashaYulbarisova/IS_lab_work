@@ -19,6 +19,7 @@ namespace WinFormsBookExpertSystem
         public void ExplainResults() // функция объяснения результатов
         {
             // реализация
+            myExplanationList.Clear();
             string ruleText = "";
             string factValueText = "";
             Rule serviceRule;// = new Rule(null,null,null);
