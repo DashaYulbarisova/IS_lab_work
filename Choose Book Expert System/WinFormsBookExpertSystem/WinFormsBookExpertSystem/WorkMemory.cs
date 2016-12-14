@@ -33,7 +33,7 @@ namespace WinFormsBookExpertSystem
 
         public Fact getFact(int index)
         {
-            return factArray[index-1];
+            return factArray[index]; // -1
         }
 
         private bool isFactInWorkMemory(Fact fact)

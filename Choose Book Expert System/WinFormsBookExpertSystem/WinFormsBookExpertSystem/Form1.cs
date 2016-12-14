@@ -33,7 +33,7 @@ namespace WinFormsBookExpertSystem
             workShell.myWorkMemory.clearMemory();
             Fact startFact = new Fact("start", "yes");
             workShell.myWorkMemory.AddFacts(startFact);
-            Rule firstRule = workShell.MyLogicOutput.FindTheRule(startFact);
+            Rule firstRule = workShell.MyLogicOutput.FindNextRule(startFact);
             if (firstRule != null)
             {                             
                 lbtQuestionText.Text = "Вопрос: " + firstRule.Question;
@@ -50,6 +50,8 @@ namespace WinFormsBookExpertSystem
             }
             else
             {
+                bthStartTest.Visible = true;
+                btnStudyComp.Visible = true;
                 MessageBox.Show("База знаний пуста. Добавьте знания и запустите тест снова", "Внимание!");
             }
 
@@ -72,9 +74,10 @@ namespace WinFormsBookExpertSystem
             workShell.myWorkMemory.bufFact.propValueFact = txtBoxInput.Text;
             Fact addFact = workShell.myWorkMemory.bufFact;
             workShell.myWorkMemory.AddFacts(addFact);
-            Rule nextRule = workShell.MyLogicOutput.FindTheRule(addFact);
+            Rule nextRule = workShell.MyLogicOutput.FindNextRule(addFact);
             if (nextRule != null)
             {
+                txtBoxInput.Text = "";
                 lbtQuestionText.Text = "Вопрос: " + nextRule.Question;
                 lblPosValue.Text = "Варианты ответов: ";
                 foreach (string posVal in nextRule.PossibleValue)

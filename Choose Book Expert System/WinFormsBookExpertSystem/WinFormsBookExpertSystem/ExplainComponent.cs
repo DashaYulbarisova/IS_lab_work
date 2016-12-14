@@ -10,7 +10,7 @@ namespace WinFormsBookExpertSystem
     {
         private ILogicOutput _myLogicOutput;
         private IWorkMemory _myWorkMemory;
-        private List<ExplainElement> myExplanationList;
+        private List<ExplainElement> myExplanationList = new List<ExplainElement>();
         public ExplainComponent(ILogicOutput logicOutput,IWorkMemory workMemory) // конструктор
         {
             _myLogicOutput = logicOutput;
@@ -19,13 +19,17 @@ namespace WinFormsBookExpertSystem
         public void ExplainResults() // функция объяснения результатов
         {
             // реализация
-            string ruleText;
-            string factValueText;
+            string ruleText = "";
+            string factValueText = "";
+            Rule serviceRule;// = new Rule(null,null,null);
+            Fact serviceFact;
             int countFact = _myWorkMemory.getCountFact();
-            for (int i = 0; i < countFact; i++)
+            for (int i = 1; i < countFact; i++)
             {
-                ruleText  = _myLogicOutput.FindTheRule(_myWorkMemory.getFact(i)).Print();
-                factValueText = _myWorkMemory.getFact(i).propNameFact;
+                serviceFact = _myWorkMemory.getFact(i);
+                serviceRule = _myLogicOutput.FindRuleByName(serviceFact.propNameFact);
+                ruleText  = serviceRule.Print();
+                factValueText = serviceFact.propValueFact;
                 myExplanationList.Add(new ExplainElement(ruleText, factValueText));
             }
             
@@ -38,8 +42,6 @@ namespace WinFormsBookExpertSystem
                 fullStr = fullStr + element.Print() + Environment.NewLine;
             }
             return fullStr;
-
-
         }
     }
 }
