@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.btnStudyComp = new System.Windows.Forms.Button();
-            this.bthStartTest = new System.Windows.Forms.Button();
+            this.btnStartTest = new System.Windows.Forms.Button();
             this.btnAccept = new System.Windows.Forms.Button();
             this.lbtQuestionText = new System.Windows.Forms.Label();
             this.lblPosValue = new System.Windows.Forms.Label();
             this.txtBoxInput = new System.Windows.Forms.TextBox();
             this.lblInput = new System.Windows.Forms.Label();
             this.btnExplain = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnStudyComp
@@ -48,15 +49,15 @@
             this.btnStudyComp.UseVisualStyleBackColor = true;
             this.btnStudyComp.Click += new System.EventHandler(this.btnStudyComp_Click);
             // 
-            // bthStartTest
+            // btnStartTest
             // 
-            this.bthStartTest.Location = new System.Drawing.Point(31, 12);
-            this.bthStartTest.Name = "bthStartTest";
-            this.bthStartTest.Size = new System.Drawing.Size(173, 29);
-            this.bthStartTest.TabIndex = 1;
-            this.bthStartTest.Text = "Запустить тест";
-            this.bthStartTest.UseVisualStyleBackColor = true;
-            this.bthStartTest.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnStartTest.Location = new System.Drawing.Point(31, 12);
+            this.btnStartTest.Name = "btnStartTest";
+            this.btnStartTest.Size = new System.Drawing.Size(173, 29);
+            this.btnStartTest.TabIndex = 1;
+            this.btnStartTest.Text = "Запустить тест";
+            this.btnStartTest.UseVisualStyleBackColor = true;
+            this.btnStartTest.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnAccept
             // 
@@ -112,18 +113,29 @@
             this.btnExplain.UseVisualStyleBackColor = true;
             this.btnExplain.Click += new System.EventHandler(this.btnExplain_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(194, 227);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(87, 32);
+            this.btnBack.TabIndex = 8;
+            this.btnBack.Text = "Вернуться";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(438, 271);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.btnExplain);
             this.Controls.Add(this.lblInput);
             this.Controls.Add(this.txtBoxInput);
             this.Controls.Add(this.lblPosValue);
             this.Controls.Add(this.lbtQuestionText);
             this.Controls.Add(this.btnAccept);
-            this.Controls.Add(this.bthStartTest);
+            this.Controls.Add(this.btnStartTest);
             this.Controls.Add(this.btnStudyComp);
             this.Name = "Form1";
             this.Text = "Экспертная система";
@@ -136,13 +148,14 @@
         #endregion
 
         private System.Windows.Forms.Button btnStudyComp;
-        private System.Windows.Forms.Button bthStartTest;
+        private System.Windows.Forms.Button btnStartTest;
         private System.Windows.Forms.Button btnAccept;
         private System.Windows.Forms.Label lbtQuestionText;
         private System.Windows.Forms.Label lblPosValue;
         private System.Windows.Forms.TextBox txtBoxInput;
         private System.Windows.Forms.Label lblInput;
         private System.Windows.Forms.Button btnExplain;
+        private System.Windows.Forms.Button btnBack;
     }
 }
 

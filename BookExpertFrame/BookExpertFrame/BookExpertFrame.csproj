@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1BDD645C-7926-48E3-A437-D4F4DB9BCA64}</ProjectGuid>
+    <ProjectGuid>{4E90B204-A88F-400C-8FC9-EBE48CD75DFC}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WinFormsBookExpertSystem</RootNamespace>
-    <AssemblyName>WinFormsBookExpertSystem</AssemblyName>
+    <RootNamespace>BookExpertFrame</RootNamespace>
+    <AssemblyName>BookExpertFrame</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,12 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -50,44 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddConditionForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddConditionForm.Designer.cs">
-      <DependentUpon>AddConditionForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ExplainElement.cs" />
-    <Compile Include="Fact.cs" />
-    <Compile Include="Rule.cs" />
-    <Compile Include="StudyComponent.cs" />
-    <Compile Include="ExpertShell.cs" />
     <Compile Include="ExplainComponent.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IStudyComponent.cs" />
-    <Compile Include="IExplainComponent.cs" />
-    <Compile Include="ILogicOutput.cs" />
-    <Compile Include="IWorkMemory.cs" />
+    <Compile Include="Frame.cs" />
     <Compile Include="KnowledgeBase.cs" />
-    <Compile Include="LogicOutput.cs" />
+    <Compile Include="LogitOutput.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StudyComponentForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="StudyComponentForm.Designer.cs">
-      <DependentUpon>StudyComponentForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WorkMemory.cs" />
-    <EmbeddedResource Include="AddConditionForm.resx">
-      <DependentUpon>AddConditionForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Subframe.cs" />
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,9 +71,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="StudyComponentForm.resx">
-      <DependentUpon>StudyComponentForm.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

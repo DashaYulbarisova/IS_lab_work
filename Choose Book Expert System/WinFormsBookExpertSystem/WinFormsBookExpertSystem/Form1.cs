@@ -28,16 +28,19 @@ namespace WinFormsBookExpertSystem
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            bthStartTest.Visible = false;
+            btnStartTest.Visible = false;
             btnStudyComp.Visible = false;
             workShell.myWorkMemory.clearMemory();
             Fact startFact = new Fact("start", "yes");
             workShell.myWorkMemory.AddFacts(startFact);
-            Rule firstRule = workShell.MyLogicOutput.FindTheRule(startFact);
+            Rule firstRule = workShell.MyLogicOutput.FindNextRule(startFact);
             if (firstRule != null)
             {                             
                 lbtQuestionText.Text = "Вопрос: " + firstRule.Question;
                 lblPosValue.Text = "Варианты ответов: ";
+                lblInput.Text = "Введите ответ: ";
+                txtBoxInput.Text = "";
+
                 foreach (string posVal in firstRule.PossibleValue)
                 {
                     lblPosValue.Text = lblPosValue.Text + " "+posVal;
@@ -50,6 +53,8 @@ namespace WinFormsBookExpertSystem
             }
             else
             {
+                btnStartTest.Visible = true;
+                btnStudyComp.Visible = true;
                 MessageBox.Show("База знаний пуста. Добавьте знания и запустите тест снова", "Внимание!");
             }
 
@@ -65,6 +70,14 @@ namespace WinFormsBookExpertSystem
             lblInput.Visible = false;
             txtBoxInput.Visible = false;
             btnExplain.Visible = false;
+            btnBack.Visible = false;
+        }
+        private void VisibleButton()
+        {
+            btnStudyComp.Visible = true;
+            btnStartTest.Visible = true;
+            lblInput.Visible = true;
+            
         }
 
         private void btnAccept_Click(object sender, EventArgs e)
@@ -72,11 +85,13 @@ namespace WinFormsBookExpertSystem
             workShell.myWorkMemory.bufFact.propValueFact = txtBoxInput.Text;
             Fact addFact = workShell.myWorkMemory.bufFact;
             workShell.myWorkMemory.AddFacts(addFact);
-            Rule nextRule = workShell.MyLogicOutput.FindTheRule(addFact);
+            Rule nextRule = workShell.MyLogicOutput.FindNextRule(addFact);
             if (nextRule != null)
             {
+                txtBoxInput.Text = "";
                 lbtQuestionText.Text = "Вопрос: " + nextRule.Question;
                 lblPosValue.Text = "Варианты ответов: ";
+                lblInput.Text = "Введите ответ";
                 foreach (string posVal in nextRule.PossibleValue)
                 {
                     lblPosValue.Text = lblPosValue.Text + " " + posVal;
@@ -101,21 +116,39 @@ namespace WinFormsBookExpertSystem
                         break;
                     }
                 }
-                string adviceText = lastWorkedRule.Advice[indexAdvice];
-                MessageBox.Show("Советуем прочитать: " + lastWorkedRule.Advice[indexAdvice]);
+                string adviceText = "";
+                if (indexAdvice != -1)
+                {
+                    adviceText = lastWorkedRule.Advice[indexAdvice];
+                    MessageBox.Show("Советуем прочитать: " + lastWorkedRule.Advice[indexAdvice]);
+                }
+                else
+                {
+                    MessageBox.Show("Нет совета к прочтению");
+                }
                 btnExplain.Visible = true;
                 lbtQuestionText.Text = "";
                 lblPosValue.Text = "";
                 lblInput.Text = "";
                 txtBoxInput.Visible = false;
-            }
-
-
+                btnAccept.Visible = false;
+            }            
         }
 
         private void btnExplain_Click(object sender, EventArgs e)
         {
+            string explanaionResults = "";
+            workShell.MyExplainComponent.ExplainResults();
+            explanaionResults = workShell.MyExplainComponent.Print();
+            btnBack.Visible = true;
+            MessageBox.Show("Объяснение: " + Environment.NewLine + explanaionResults);            
+        }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            btnExplain.Visible = false;
+            btnBack.Visible = false;
+            VisibleButton();
         }
     }
 }

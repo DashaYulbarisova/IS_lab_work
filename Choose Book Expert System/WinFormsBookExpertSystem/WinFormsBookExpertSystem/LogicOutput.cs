@@ -14,7 +14,7 @@ namespace WinFormsBookExpertSystem
             _myKnowledgeBase = knowledgeBase;
         }
 
-        public Rule FindTheRule(Fact fact) // функция нахождения правила (добавить возвращаемый тип значения)
+        public Rule FindNextRule(Fact fact) // функция нахождения правила (добавить возвращаемый тип значения)
         {
             Rule returnRule = null;
             foreach (Rule rule in _myKnowledgeBase.PropRulesPool)

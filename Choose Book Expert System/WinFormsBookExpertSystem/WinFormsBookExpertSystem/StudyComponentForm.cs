@@ -65,6 +65,7 @@ namespace WinFormsBookExpertSystem
 
         private void btnAddRule_Click(object sender, EventArgs e)
         {
+            //newMyCondition = new List<MyCondition>();
             List<string> actVar = GetArrFromPhrase(txtBoxNameAct.Text);
             List<string> arrPossibleVal = GetArrFromPhrase(txtBoxPosValue.Text);
             string questVar = txtBoxQuestion.Text;
@@ -79,6 +80,7 @@ namespace WinFormsBookExpertSystem
             {
                 MessageBox.Show("Правило успешно добавлено!");
                 ClearAllTextBox();
+                
             }
            else
            {
@@ -89,6 +91,7 @@ namespace WinFormsBookExpertSystem
       
         private void button1_Click(object sender, EventArgs e)
         {
+            this.newMyCondition = new List<MyCondition>();
             AddConditionForm myAddConditionForm = new AddConditionForm(this);
             myAddConditionForm.Show();
         }

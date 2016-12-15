@@ -9,7 +9,7 @@ namespace WinFormsBookExpertSystem
     public interface IExplainComponent // класс интерфейс компонента объяснения
     {
         void ExplainResults(); // функция объяснения результатов
-        void Print(); // функция отображения объяснения
+        string Print(); // функция отображения объяснения
        
     }
 

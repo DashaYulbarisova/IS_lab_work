@@ -10,6 +10,9 @@ namespace WinFormsBookExpertSystem
     {
         
         void AddFacts(Fact newFact); // функция добавления фактов в рабочую память
-        
+        Fact getFact(int index);
+        int getCountFact();
+
+
     }
 }
