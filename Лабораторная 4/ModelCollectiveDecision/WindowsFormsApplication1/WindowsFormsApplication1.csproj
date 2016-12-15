@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BordaCount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BordaCount.Designer.cs">
+      <DependentUpon>BordaCount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Condorcet1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,9 @@
     <Compile Include="RelativeMajority.Designer.cs">
       <DependentUpon>RelativeMajority.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BordaCount.resx">
+      <DependentUpon>BordaCount.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Condorcet1.resx">
       <DependentUpon>Condorcet1.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
