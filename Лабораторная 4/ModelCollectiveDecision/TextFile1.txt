@@ -1,0 +1,17 @@
+            winner = "";
+            if ((for1var > for2var) & (for1var > for3var) & (for1var > for4var))
+            {
+                winner = "Акция";
+            }
+            if ((for2var > for1var) & (for2var > for3var) & (for2var > for4var))
+            {
+                winner = "Облигация";
+            }
+            if ((for3var > for1var) & (for3var > for2var) & (for2var > for4var))
+            {
+                winner = "Банковский сертификат";
+            }
+            if ((for4var > for1var) & (for4var > for2var) & (for4var > for3var))
+            {
+                winner = "Инвестиционный пай";
+            }
