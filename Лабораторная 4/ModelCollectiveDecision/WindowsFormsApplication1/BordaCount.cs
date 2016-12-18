@@ -19,6 +19,48 @@ namespace WindowsFormsApplication1
             InitializeComponent();
         }
 
+        public string WhoIsWin()
+        {
+            dataGridView1.Visible = true;
+            for (int i = 0; i < candidates.Count(); i++)
+            {
+                dataGridView1.Rows[0].Cells[i].Value = candidates[i];
+            }
+            int different = 0;
+            for (int i = 0; i < candidates.Count(); i++)
+            {
+                if (candidates[i] == candidates.Max<int>())
+                {
+                    different = different + 1;
+                }
+            }
+            int index = Array.IndexOf(candidates, candidates.Max<int>());
+            string win = "";
+            if (different == 1)
+            {
+                switch (index)
+                {
+                    case 0:
+                        win = "Акция";
+                        break;
+                    case 1:
+                        win = "Облигация";
+                        break;
+                    case 2:
+                        win = "Банковский сертификат";
+                        break;
+                    case 3:
+                        win = "Инвестиционный пай";
+                        break;
+                }
+            }
+            else
+            {
+                win = "Нет явного победителя";
+            }
+            return win;
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             candidates[0] = candidates[0] + Convert.ToInt32(textBox1.Text);
@@ -34,30 +76,9 @@ namespace WindowsFormsApplication1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            dataGridView1.Visible = true;
-            for (int i = 0; i < 4; i++)
-            {
-                    dataGridView1.Rows[0].Cells[i].Value = candidates[i];
-            }
-            int index = Array.IndexOf(candidates, candidates.Max<int>());
-            string winner = "";
-            switch (index)
-            {
-                case 0:
-                    winner = "Акция";
-                    break;
-                case 1:
-                    winner = "Облигация";
-                    break;
-                case 2:
-                    winner = "Банковский сертификат";
-                    break;
-                case 3:
-                    winner = "Инвестиционный пай";
-                    break;
-            }
+            string winner = WhoIsWin();
             label3.Visible = true;
-            label3.Text = winner;
+            label3.Text = "Победитель - " + winner;
         }
     }
 }

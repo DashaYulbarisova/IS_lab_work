@@ -22,27 +22,28 @@ namespace WindowsFormsApplication1
 
         public string WhoIsWin()
         {
-            string win = "";
             candidate1 = group.Count(p => p == 1);
             candidate2 = group.Count(p => p == 2);
             candidate3 = group.Count(p => p == 3);
             candidate4 = group.Count(p => p == 4);
+            ResultForCandidates.Rows.Clear();
+            ResultForCandidates.Visible = true;
+            ResultForCandidates.Rows.Add(new object[] { "Акция", candidate1 });
+            ResultForCandidates.Rows.Add(new object[] { "Облигация", candidate2 });
+            ResultForCandidates.Rows.Add(new object[] { "Банковский сертификат", candidate3 });
+            ResultForCandidates.Rows.Add(new object[] { "Инвестиционный пай", candidate4 });
             int[] candidates = new int[] { candidate1, candidate2, candidate3, candidate4 };
-            int max = candidates.Max<int>();
-            int index = Array.IndexOf(candidates, max);
             int different = 0;
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < candidates.Count(); i++)
             {
-                if (candidates[i] == max)
+                if (candidates[i] == candidates.Max<int>())
                 {
                     different = different + 1;
                 }
             }
-            if (different > 1)
-            {
-                win = "Нет явного победителя";
-            }
-            else
+            string win = "";
+            int index = Array.IndexOf(candidates, candidates.Max());
+            if (different == 1)
             {
                 switch (index)
                 {
@@ -60,6 +61,10 @@ namespace WindowsFormsApplication1
                         break;
                 }
             }
+            else
+            {
+                win = "Нет явного победителя";
+            }
             return win;
         }
 
@@ -69,24 +74,17 @@ namespace WindowsFormsApplication1
             {
                 if (((RadioButton)groupBox1.Controls[i]).Checked == true)
                 {
-                    int myChoice = 4-i;
-                    group.Add(myChoice);
+                    group.Add(4 - i);
                     ((RadioButton)groupBox1.Controls[i]).Checked = false;
                 }
             }
-            ResultForElectors.Rows.Add(new object[] { group.Count, group[group.Count-1] });
+            ResultForElectors.Rows.Add(new object[] { group.Count, group.Last() });
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {
-            ResultForCandidates.Rows.Clear();
-            ResultForCandidates.Visible = true;
-            label3.Visible = true;
+        {           
             string winner = WhoIsWin();
-            ResultForCandidates.Rows.Add(new object[] { "Акция", candidate1 });
-            ResultForCandidates.Rows.Add(new object[] { "Облигация", candidate2 });
-            ResultForCandidates.Rows.Add(new object[] { "Банковский сертификат", candidate3 });
-            ResultForCandidates.Rows.Add(new object[] { "Инвестиционный пай", candidate4 });
+            label3.Visible = true;
             label3.Text = "Победитель - "+ winner;
         }
     }
