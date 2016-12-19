@@ -284,7 +284,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(388, 268);
+            this.button1.Location = new System.Drawing.Point(471, 268);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 60);
             this.button1.TabIndex = 27;
@@ -303,7 +303,7 @@
             this.Column2,
             this.Column12,
             this.Column13});
-            this.dataGridView2.Location = new System.Drawing.Point(370, 334);
+            this.dataGridView2.Location = new System.Drawing.Point(453, 334);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(342, 134);
             this.dataGridView2.TabIndex = 28;
@@ -338,7 +338,7 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(529, 276);
+            this.label7.Location = new System.Drawing.Point(612, 276);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(121, 24);
             this.label7.TabIndex = 29;
