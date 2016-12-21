@@ -20,17 +20,24 @@ namespace BookExpertFrame
         private void frmFrameExpertSystem_Load(object sender, EventArgs e)
         {
             panelAuthor.Visible = false;
-            panelGenre.Visible = false;
         }
-
         private void chckBoxAuthor_CheckedChanged(object sender, EventArgs e)
         {
             panelAuthor.Visible = chckBoxAuthor.Checked;          
         }
-
-        private void chckBoxGenre_CheckedChanged(object sender, EventArgs e)
+        private void btnAcceptSubframeAuthor_Click(object sender, EventArgs e)
         {
-            panelGenre.Visible = chckBoxGenre.Checked;            
+
+        }
+
+        private void radioBtnRoadBook_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioBtnHomeBook_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

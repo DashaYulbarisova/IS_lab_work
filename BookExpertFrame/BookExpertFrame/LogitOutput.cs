@@ -15,9 +15,13 @@ namespace BookExpertFrame
         }
         public Frame fillFrame(Frame workFrame)
         {
+            Frame resulFrame = myKnowledgeBase.getFrameByName(workFrame.nameFrame);
             foreach (Slot slot in workFrame.slotFrame)
             {
-
+                if (slot.valueSlot == "")
+                {
+                    slot.valueSlot = slot.AttachedProcedure;
+                }
             }
 
             return new Frame(null,null);
