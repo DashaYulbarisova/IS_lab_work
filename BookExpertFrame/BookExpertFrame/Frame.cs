@@ -6,15 +6,16 @@ using System.Threading.Tasks;
 
 namespace BookExpertFrame
 {
-    public enum typeFrameEnum { instanceFrame, classFrame };
+    public enum typeFrameEnum { instanceFrame, classFrame }; //связь наследование между ними //enum массив констант
     public class Frame
     {
         public string nameFrame;
         public List<Slot> slotFrame;
-        public typeFrameEnum typeFrame ;
-        public Frame(typeFrameEnum type)
+        public typeFrameEnum typeFrame; //НУЖНО ЛИ???
+        public Frame(string name, Slot slot)
         {
-            typeFrame = type;            
+            nameFrame = name;
+            slotFrame.Add(slot);
         }
     }
 }
