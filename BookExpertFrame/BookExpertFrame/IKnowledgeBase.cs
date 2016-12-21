@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace BookExpertFrame
 {
-    public class KnowledgeBase : IKnowledgeBase
+    public interface IKnowledgeBase
     {
-        public List<Frame> listFrame;
     }
 }
