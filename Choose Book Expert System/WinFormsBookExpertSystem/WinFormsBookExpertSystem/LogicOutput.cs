@@ -40,7 +40,7 @@ namespace WinFormsBookExpertSystem
             foreach (Rule rule in _myKnowledgeBase.PropRulesPool)
             {
             
-            if ((rule.NameRule == nameFact)&&(rule.used == true))
+            if ((rule.NameRule == nameFact))//&&(rule.used == true))
             {
                        returnRule = rule;
                        break;

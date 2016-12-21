@@ -25,28 +25,12 @@ namespace BookExpertFrame
 
         private void chckBoxAuthor_CheckedChanged(object sender, EventArgs e)
         {
-            if (chckBoxAuthor.Checked)
-            {
-                panelAuthor.Visible = true;
-            }
-            else
-            {
-                panelAuthor.Visible = false;
-            }
-            
+            panelAuthor.Visible = chckBoxAuthor.Checked;          
         }
 
         private void chckBoxGenre_CheckedChanged(object sender, EventArgs e)
         {
-            if (chckBoxGenre.Checked)
-            {
-                panelGenre.Visible = true;
-            }
-            else
-            {
-                panelGenre.Visible = false;
-            }
-
+            panelGenre.Visible = chckBoxGenre.Checked;            
         }
     }
 }

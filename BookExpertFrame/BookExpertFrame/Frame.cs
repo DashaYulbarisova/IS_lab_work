@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace BookExpertFrame
 {
+    public enum typeFrameEnum { instanceFrame, classFrame };
     public class Frame
     {
-        public string nameBook;
-        public Subframe authorBook;
-        public Subframe genreBook;
-        public int countPagesBook;
-        //public int yearPublicationBook;
-
-        
-        //Вопросы:
-        //1. Как формировать субфреймы? В конструктор передаем название фрейма и список полей? 
-        //   Или просто есть класс субфреймАвтор и субфреймЖанр?
-        
-
+        public string nameFrame;
+        public List<Slot> slotFrame;
+        public typeFrameEnum typeFrame ;
+        public Frame(typeFrameEnum type)
+        {
+            typeFrame = type;
+        }
     }
 }

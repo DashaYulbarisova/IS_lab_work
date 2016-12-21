@@ -22,7 +22,7 @@ namespace WinFormsBookExpertSystem
             myExplanationList.Clear();
             string ruleText = "";
             string factValueText = "";
-            Rule serviceRule;// = new Rule(null,null,null);
+            Rule serviceRule;
             Fact serviceFact;
             int countFact = _myWorkMemory.getCountFact();
             for (int i = 1; i < countFact; i++)
