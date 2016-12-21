@@ -15,7 +15,12 @@ namespace BookExpertFrame
         }
         public Frame fillFrame(Frame workFrame)
         {
-            return;
+            foreach (Slot slot in workFrame.slotFrame)
+            {
+
+            }
+
+            return new Frame(null,null);
         }
     }
 }

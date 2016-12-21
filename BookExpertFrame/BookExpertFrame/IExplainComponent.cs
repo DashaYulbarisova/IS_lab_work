@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace BookExpertFrame
 {
-    public interface IKnowledgeBase
+    public interface IExplainComponent
     {
-        Frame getFrameByName(string nameFrame);
+        string getExplain();
     }
 }
