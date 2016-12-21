@@ -14,7 +14,7 @@ namespace BookExpertFrame
         public typeFrameEnum typeFrame ;
         public Frame(typeFrameEnum type)
         {
-            typeFrame = type;
+            typeFrame = type;            
         }
     }
 }

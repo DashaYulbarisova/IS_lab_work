@@ -9,6 +9,7 @@ namespace BookExpertFrame
     public class Slot
     {
         public string nameSlot;
-        public string defaultValue;                           
+        public string defaultValue;
+        public string valueSlot;                                   
     }
 }
