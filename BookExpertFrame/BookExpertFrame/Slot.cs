@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace BookExpertFrame
 {
-    public class Subframe
+    public class Slot
     {
+        public string nameSlot;
+        public string defaultValue;                           
     }
 }

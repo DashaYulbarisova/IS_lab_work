@@ -145,38 +145,22 @@ namespace WinFormsBookExpertSystem
             return sb.ToString();
 
         }
-
-
         public void SaveToFile() // функция сохранения базы знаний в файл
         {
             string stringRules;
             stringRules = SerializeRule();
             File.WriteAllText("rulesInJson.json", stringRules);
-        }
-
-
-       
+        }  
         public void ReadFromFile() // функция чтения базы знаний из файла
         {
             // реализация чтения из JSON
-
-
             var json = System.IO.File.ReadAllText("rulesInJson.json");
             var objects = JArray.Parse(json); // parse as array  
-
-
-
             foreach (JObject root in objects)
             {
-
-
                 foreach (KeyValuePair<String, JToken> rules in root)
                 {
-
                     var appName = rules.Key;
-                    //ruleForTest.advice = (String)rules.Value["advice"];
-
-                    //начало
                     string[] valuesOfAdviceArr = new string[100];
                     JToken bufForAdvice = ((JToken)rules.Value["advice"].First);
                     int iAdvice = 0;
@@ -188,10 +172,6 @@ namespace WinFormsBookExpertSystem
                         bufForAdvice = bufForAdvice.Next;
                     }
                     while (bufForAdvice != null);
-                    //конец
-
-
-                    //начало
                     string[] valuesOfPosValArr = new string[100];
                     JToken bufForPosVal = ((JToken)rules.Value["possibleValue"].First);
                     int iPosVal = 0;
@@ -203,11 +183,6 @@ namespace WinFormsBookExpertSystem
                         bufForPosVal = bufForPosVal.Next;
                     }
                     while (bufForPosVal != null);
-                    //конец
-
-
-
-                    //начало
                     string[] valuesOfActionArr = new string[100];
                     JToken bufForAction = ((JToken)rules.Value["action"].First);
                     int iAction = 0;
@@ -219,11 +194,8 @@ namespace WinFormsBookExpertSystem
                         bufForAction = bufForAction.Next;
                     }
                     while (bufForAction != null);
-                    //конец
-
                     JToken bufForCondition = ((JToken)rules.Value["conditions"].First);
                     int i = 0;
-
                     do
                     {
                         JToken name = bufForCondition.First;
@@ -240,7 +212,6 @@ namespace WinFormsBookExpertSystem
 
                     }
                     while ((bufForCondition != null));
-                    //      label1.Text = ruleForTest.advice[0];
                     var question = (String)rules.Value["question"];
                     counterRule++;
                 }

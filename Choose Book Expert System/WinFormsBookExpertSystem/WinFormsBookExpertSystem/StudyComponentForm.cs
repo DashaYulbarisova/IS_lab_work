@@ -73,8 +73,9 @@ namespace WinFormsBookExpertSystem
             List<MyCondition> arrCondVar = this.newMyCondition;
             //label1.Text = getArrCond(txtBoxCond).ToString();
             Rule rule = new Rule(actVar, arrPossibleVal, questVar, adviceVar, arrCondVar);
-            List<Rule> lR = new List<Rule>();
-            lR.Add(rule); // что за??????
+            //List<Rule> lR = new List<Rule>();
+            //lR.Add(rule); // что за??????
+            lnkStudyComp.AddTheRule(rule); // !!!!!!!!!!!!!!!!!!!!!!!!!!
             lnkStudyComp.KnowBase.SaveToFile();
             if (lnkStudyComp.AddTheRule(rule) == true)
             {
