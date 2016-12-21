@@ -16,6 +16,6 @@ namespace BookExpertFrame
         {
             nameFrame = name;
             slotFrame.Add(slot);
-        }
+    }
     }
 }

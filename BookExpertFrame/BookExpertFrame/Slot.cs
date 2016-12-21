@@ -8,7 +8,7 @@ namespace BookExpertFrame
 {
     public class Slot
     {
-        public string nameSlot;
+        public string nameSlot;                             
         public string typeInheritance;
         public string typeData;
         public string valueSlot;
@@ -21,6 +21,6 @@ namespace BookExpertFrame
             typeData = data;
             valueSlot = value;
             AttachedProcedure = procedure;
-        }
+    }
     }
 }
