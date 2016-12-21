@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace BookExpertFrame
 {
-    public class ExplainComponent
+    public class ExplainComponent : IExplainComponent
     {
+        public ExplainComponent()
+        { }
+        public string getExplain()
+        {
+            return " ";
+        }
     }
 }
