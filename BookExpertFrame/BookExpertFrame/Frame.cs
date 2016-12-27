@@ -11,11 +11,13 @@ namespace BookExpertFrame
     {
         public string nameFrame;
         public List<Slot> slotFrame;
-        public typeFrameEnum typeFrame; //НУЖНО ЛИ???
-        public Frame(string name, Slot slot)
+        public string IS_A;
+        //public typeFrameEnum typeFrame;
+        public Frame(string name, List<Slot> slot, string link)
         {
             nameFrame = name;
-            slotFrame.Add(slot);
-    }
+            slotFrame = slot;
+            IS_A = link;
+        }
     }
 }
