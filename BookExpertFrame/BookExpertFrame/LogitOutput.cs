@@ -3,19 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BookExpertFrame
 {
     public class LogitOutput
     {
-        private IKnowledgeBase myKnowledgeBase;
-        public LogitOutput(IKnowledgeBase knowledgeBase)
+        private KnowledgeBase myKnowledgeBase;
+        public LogitOutput(KnowledgeBase knowledgeBase)
         {
             myKnowledgeBase = knowledgeBase;
         }
         public Frame fillFrame(Frame workFrame)
         {
-            Frame resulFrame = myKnowledgeBase.getFrameByName(workFrame.nameFrame);
+            List<Frame> collectionFrame = getChildFrames(workFrame.IS_A);
+            try
+            {
+                Frame resulFrame = myKnowledgeBase.getFrameByName(workFrame.IS_A);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Произошла ошибка");
+            }
+            
+            
             foreach (Slot slot in workFrame.slotFrame)
             {
                 if (slot.valueSlot == "")
@@ -25,6 +36,18 @@ namespace BookExpertFrame
             }
 
             return new Frame(null,null);
+        }
+        private List<Frame> getChildFrames(string parentName)
+        {
+            List<Frame> resultFrameCollection = new List<Frame>();
+            foreach (Frame frame in myKnowledgeBase.listFrame)
+            {
+                if (frame.IS_A == parentName)
+                {
+                    resultFrameCollection.Add(frame);
+                }
+            }
+            return resultFrameCollection;
         }
     }
 }
