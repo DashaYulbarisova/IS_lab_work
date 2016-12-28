@@ -16,7 +16,7 @@ namespace BookExpertFrame
             myKnowledgeBase = knowledgeBase;
         }
 
-        public Frame LinkWithFrame(string nameFrame) // привязка к фрейму
+        public Frame LinkWithFrame(string nameFrame) 
         {
             Frame linkedFrame = new Frame(null,null,null);
             try
@@ -38,25 +38,24 @@ namespace BookExpertFrame
                 if (IsSubframe(slot))
                 {
                     Frame subframe = myKnowledgeBase.getFrameByName(slot.nameSlot);
-                    foreach (Slot subframeSlot in subframe.slotFrame)
-                        FillSlot(subframeSlot);
+                    if (subframe != null)
+                    {
+                        FillFrame(subframe); // рекурсивный вызов 
+                    }
                 }
                 else
                 {
-                    if (isSlotHasValue(slot.valueSlot))
+                    if (isSlotHasValue(slot.valueSlot)) // (IF-ADDED)
                     {
-                        Method method = FindAttachedProcedure(slot.AttachedProcedure);
-                        method.Execute();
-                        // если значение слота определено, вызывай присоединенную процедуру (IF-ADDED)
+                       FillSlot(slot);
                     }
-                    //FillSlot(slot);
                 }
             }
-
-            // может быть, добавить проверку все ли слоты заполнены и если нет, 
-            // тогда вызвать метод FillSlot (IF-NEEDED)
-
-            return new Frame(name: null,slot: null,link: null);
+            if (!CheckAllSlots(linkedFrame))
+            {
+                // что делать?   
+            }
+            return linkedFrame;
         }
         private bool IsSubframe(Slot slot) // проверяем является ли слот фреймом
         {
@@ -64,13 +63,10 @@ namespace BookExpertFrame
             return result;
         }
 
-        private void FillSlot(Slot slot) // процедура заполнения слота, нужна ли?
+        private void FillSlot(Slot slot) 
         {
-            //if (!IsNullOrEmpty(slot.valueSlot))
-            //{
-            //    Method method = myKnowledgeBase.FindAttachedProcedure(slot.AttachedProcedure);
-            //    slot.valueSlot = method.Execute();
-            //}
+            AttachedProcedure method = myKnowledgeBase.FindAttachedProcedure(slot.AttachedProcedure);
+            method?.Execute();
         }
 
         private bool isSlotHasValue(string slotValue)
@@ -79,8 +75,16 @@ namespace BookExpertFrame
             return result;
         }
 
-        //абстрактный класс метод
-        //имя метода
-        //execute()
+        private bool CheckAllSlots(Frame frame)
+        {
+            foreach (Slot slot in frame.slotFrame)
+            {
+                if (!isSlotHasValue(slot.valueSlot))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }
