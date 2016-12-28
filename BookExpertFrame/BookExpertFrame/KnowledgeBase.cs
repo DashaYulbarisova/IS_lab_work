@@ -12,6 +12,7 @@ namespace BookExpertFrame
     {
         public List<Frame> listFrame;
         public List<Slot> listSlot;
+        private List<AttachedProcedure> attachedProcedures;
 
         private void CreateNewSlot(int type)
         {
@@ -60,9 +61,21 @@ namespace BookExpertFrame
         }
         public Frame getFrameByName(string nameFrame) // ДАША!!!!!!!!!!!
         {
-            return new Frame(null, null);
+            return new Frame(name: null, slot: null, link: null);
         }
 
         //вернет слот по его имени, передаем фрейм
+
+        public AttachedProcedure FindAttachedProcedure(string nameAttachedProcedure)
+        {
+            foreach (AttachedProcedure attachedProcedure in attachedProcedures)
+            {
+                if (attachedProcedure.nameAttachedProcedure == nameAttachedProcedure)
+                {
+                    return attachedProcedure;
+                }
+            }
+            return null;
+        }
     }
 }
