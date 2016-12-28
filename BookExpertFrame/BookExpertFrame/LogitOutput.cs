@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.String;
 
 namespace BookExpertFrame
 {
@@ -14,40 +15,72 @@ namespace BookExpertFrame
         {
             myKnowledgeBase = knowledgeBase;
         }
-        public Frame fillFrame(Frame workFrame)
+
+        public Frame LinkWithFrame(string nameFrame) // привязка к фрейму
         {
-            List<Frame> collectionFrame = getChildFrames(workFrame.IS_A);
+            Frame linkedFrame = new Frame(null,null,null);
             try
             {
-                Frame resulFrame = myKnowledgeBase.getFrameByName(workFrame.IS_A);
+                linkedFrame = myKnowledgeBase.getFrameByName(nameFrame);
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Произошла ошибка");
             }
-            
-            
-            foreach (Slot slot in workFrame.slotFrame)
+            return linkedFrame;
+
+        }
+
+        public Frame FillFrame(Frame linkedFrame) // заполняем фрейм
+        {
+            foreach (Slot slot in linkedFrame.slotFrame)
             {
-                if (slot.valueSlot == "")
+                if (IsSubframe(slot))
                 {
-                    slot.valueSlot = slot.AttachedProcedure;
+                    Frame subframe = myKnowledgeBase.getFrameByName(slot.nameSlot);
+                    foreach (Slot subframeSlot in subframe.slotFrame)
+                        FillSlot(subframeSlot);
+                }
+                else
+                {
+                    if (isSlotHasValue(slot.valueSlot))
+                    {
+                        Method method = FindAttachedProcedure(slot.AttachedProcedure);
+                        method.Execute();
+                        // если значение слота определено, вызывай присоединенную процедуру (IF-ADDED)
+                    }
+                    //FillSlot(slot);
                 }
             }
 
-            return new Frame(null,null);
+            // может быть, добавить проверку все ли слоты заполнены и если нет, 
+            // тогда вызвать метод FillSlot (IF-NEEDED)
+
+            return new Frame(name: null,slot: null,link: null);
         }
-        private List<Frame> getChildFrames(string parentName)
+        private bool IsSubframe(Slot slot) // проверяем является ли слот фреймом
         {
-            List<Frame> resultFrameCollection = new List<Frame>();
-            foreach (Frame frame in myKnowledgeBase.listFrame)
-            {
-                if (frame.IS_A == parentName)
-                {
-                    resultFrameCollection.Add(frame);
-                }
-            }
-            return resultFrameCollection;
+            var result = slot.typeData == "frame";
+            return result;
         }
+
+        private void FillSlot(Slot slot) // процедура заполнения слота, нужна ли?
+        {
+            //if (!IsNullOrEmpty(slot.valueSlot))
+            //{
+            //    Method method = myKnowledgeBase.FindAttachedProcedure(slot.AttachedProcedure);
+            //    slot.valueSlot = method.Execute();
+            //}
+        }
+
+        private bool isSlotHasValue(string slotValue)
+        {
+            var result = slotValue != "";
+            return result;
+        }
+
+        //абстрактный класс метод
+        //имя метода
+        //execute()
     }
 }
